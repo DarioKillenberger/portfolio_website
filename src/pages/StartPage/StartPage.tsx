@@ -1,6 +1,7 @@
 import '../../css/StartPage.css';
 import { useState } from 'react';
 import SkipPage from '../SkipPage/SkipPage';
+import ChangeText from '../../components/ui/ChangeText';
 
 function StartPage() {
   const [textVal, setText] = useState<String>();

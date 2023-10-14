@@ -1,14 +1,6 @@
 @import-normalize;
 
-
 html, body {
   margin: 0;
   padding: 0;
-  font-family:monospace;
-}  
-
-.grid-container {
-  display: grid;
-  grid-template-columns: 25vw 50vw 25vw;
-  grid-template-rows: repeat(3, 33.33vh);
 }
