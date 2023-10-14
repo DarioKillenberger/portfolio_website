@@ -1,0 +1,55 @@
+  .inner-container {
+    display: grid;
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    /* grid-template-columns: repeat(3, 400px);
+    grid-template-rows: repeat(3, 500px);
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    grid-template-columns: subgrid;
+    grid-template-rows: subgrid; */
+    font-family:monospace;
+    color: #61dafb;
+    
+  }
+  
+  #nameText {
+    display: grid;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    align-self: center;
+    justify-self:self-end;
+    margin: 10px;
+    font-size: calc(20px + 1vw);
+    white-space: nowrap;
+    
+  }
+  
+  #professionText {
+    display: grid;
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    align-self: center;
+    justify-self:self-start;
+    margin: 15px 10px 10px 10px;
+    font-size: calc(10px + 1vw);
+    /* white-space: nowrap; */
+  }
+  
+  .topRightBox {
+    display: grid;
+    grid-column: 3 / 3;
+    grid-row: 1 / 1;
+    color: #61dafb;
+    size: 20px;
+    padding: 15px 32px;
+  }
+  
+  .btn {
+    width: 100px;
+    height: 50px;
+    background-color: green;
+    border-color: green;
+    border-radius: 5px;
+    justify-self:end;
+  }
