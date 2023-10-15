@@ -1,41 +1,54 @@
 import '../../css/ChangingText.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import parse from 'html-react-parser';
 
 function ChangeText() {
-    const [textVal, setText] = useState<String>("Software Engineering Student");
+    const [textVal, setText] = useState(() => "Software Engineering Student");
 
-    function insertStrike(str: String, index: number) {
-        let newString = str.substring(0, index) + "<s>" + str.substring(index+1);
-        newString = newString.substring(0, index+3) + "</s>" + newString.substring(index+4);
+    async function insertStrike(str: string, index: number) {
+        let newString = "";
+        newString = "<s>" + str.substring(index);
+        newString = newString.substring(0, index+4) + "</s>" + newString.substring(index+4);
         console.log(newString);
         return newString;
     }
-test
-    function moveStrike(str: String, index: number) {
+
+    async function moveStrike(newText: string, index: number) {
         let newString = "";
-        if (index <= str.length ) {
-            newString = str.substring(0, index-1) + str.substring(index+1);
-            newString = newString.substring(0, index) + "</s>" + newString.substring(index+1);
+        if (index <= newText.length ) {
+            newString = newText.substring(0, index) + newText.substring(index+4);
+            newString = newString.substring(0, index+1) + "</s>" + newString.substring(index+1);
         }
         console.log(newString);
         return newString;
     }
-  
+    
     async function changeText() {
-        let newText = insertStrike(textVal, 0);
+        const textValue = textVal;
+        let newText = await insertStrike(textValue, 0);
+        console.log("initial strikethrough is " + newText);
         setText(newText);
 
-        for (let i = 0; i < textVal.length; i++) {
+        const length = newText.length-5;
+        for (let i = 4; i <= length; i++) {
             console.log(i);
-            setText(moveStrike(textVal, i));
             await new Promise(resolve => setTimeout(resolve, 1000));
+            console.log("textVal just before " + i + "th movestrike is " + newText);
+            newText = await moveStrike(newText, i);
+            console.log("newVal reTUrned by moveStrike is " + newText);
+            setText(newText);
         }
     }
+
   
   
     return (
       <>
+      <div className="topRightBox">
+        <button className="btn" onClick={changeText}>{textVal}</button>
         <h1>{textVal}</h1>
+      </div>
+        <div className='tempCount'>{parse(textVal)}</div>
       </>
     );
   }

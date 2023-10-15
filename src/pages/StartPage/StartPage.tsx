@@ -20,7 +20,7 @@ function StartPage() {
       <div className="topRightBox">
         <button className="btn" onClick={clickHandle}>Skip all these gimmicks</button>
       </div>
-      <SkipPage/>
+      <ChangeText/>
     </>
   );
 }
