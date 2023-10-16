@@ -34,6 +34,7 @@
     margin: 15px 10px 10px 10px;
     font-size: calc(10px + 1vw);
     /* white-space: nowrap; */
+    display: inline-block;
   }
   
   .topRightBox {
@@ -52,4 +53,13 @@
     border-color: green;
     border-radius: 5px;
     justify-self:end;
+  }
+
+  .bottomRightBox {
+    display: grid;
+    grid-column: 3 / 3;
+    grid-row: 3 / 3;
+    color: #61dafb;
+    size: 20px;
+    padding: 15px 32px;
   }
