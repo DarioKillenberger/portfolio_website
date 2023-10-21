@@ -5,6 +5,7 @@ import SkipPage from './pages/SkipPage/SkipPage';
 import StartPage from './pages/StartPage/StartPage';
 import WordGuesser from './page_components/WordGuesser';
 import { BrowserRouter, Routes, Route, createBrowserRouter, createRoutesFromElements, Link, RouterProvider } from 'react-router-dom';
+import MyProjects from './pages/MyProjects';
 
 
 const router = createBrowserRouter([
@@ -21,6 +22,11 @@ const router = createBrowserRouter([
   {
     path: "/wordGuess",
     element: <WordGuesser/>,
+    // errorElement: <ErrorPage />,
+  },
+  {
+    path: "/projects",
+    element: <MyProjects/>,
     // errorElement: <ErrorPage />,
   },
 
