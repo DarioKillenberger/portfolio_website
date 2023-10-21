@@ -8,21 +8,22 @@
     align-self: center;
     border:5px double rgb(40, 40, 40);
     background-color: rgb(40, 40, 40);
-    border-radius: 5px;
+    border-radius: 5px;   
 }
 
 .header {
     grid-column: 1 / 4;
-    grid-row: 1 / 1;
+    grid-row: 1 / 2;
     margin-top: -5vw;
-    margin-bottom: -50px;
+    z-index: 3;
 }
 
-.footer {
-    grid-column: 1 / 4;
-    grid-row: 3 / 3;
-    opacity: 30%;
-    margin-top: -5vw;
+.portfolioTitle {
+    grid-column: 2 / 2;
+    grid-row: 1 / 1;
+    align-self:last baseline;
+    color: rgb(95, 134, 206);
+    font-size: 25px;
 }
 
 .pictureBanner {
@@ -32,6 +33,7 @@
     overflow:visible;
     /* grid-template-columns: repeat(5, 12vw);
     grid-template-rows: 60vh; */
+    margin-left: calc(((15vw + 200px)/2)*-1);
 }
 
 .bannerImg {
@@ -41,24 +43,25 @@
 }
 
 .imgTrim {
-    width:20vw;
+    width: calc(15vw + 200px);
     max-height: 60vh;
     max-width: 800px;
     overflow: hidden;
     display: flex;
     justify-content: center;
     clip-path: polygon(40% 0%, 100% 0%, 60% 100%, 0% 100%);
-    margin-right: -200px;
+    margin-right: calc(((15vw + 200px)/2)*-1);
     z-index: 2;
 }
 
 .imgNoTrim {
-    width:40vw;
+    width: 47vw;
+    min-width: 500px;
     max-height: 60vh;
     overflow: hidden;
     display: flex;
     justify-content: center;
-    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
-    margin-right: -200px;
+    /* clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%); */
+    margin-right: calc(((15vw + 200px)/2)*-1);
     z-index: 1;
 }

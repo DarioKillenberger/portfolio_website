@@ -63,3 +63,26 @@
     border-radius: 5px;
     padding: 8px;
 }
+
+.wordGuessKeyboard {
+    display: grid;
+    grid-column: 2 / 2;
+    grid-row: 3 / 3;
+    grid-template-columns: repeat(10, 45px);
+    grid-template-rows: repeat(6, 45px);
+    justify-self: center;
+    align-self: flex-start;
+    margin: 10px;
+}
+
+.charDisplayKeyboard {
+    height: 45px;
+    width: 45px;
+    margin: 0px;
+    padding: 0px;
+    justify-self: center;
+    border: 2px solid #ffffff;
+    text-align: center;
+    color: black;
+    font-size: 23px;
+}

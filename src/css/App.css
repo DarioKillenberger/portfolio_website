@@ -10,12 +10,18 @@
 
 .gridContainer {
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  grid-template-rows: 1fr auto 1fr;
+  grid-template-columns: minmax(20px, 1fr) auto minmax(20px, 1fr);
+  grid-template-rows: minmax(13vw, 1fr) auto minmax(100px, 1fr);
   height: 100vh;
+  background-color: #202020;
    /*font-family:monospace;
   color: #61dafb;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);*/
-} 
+}
+
+.skipBtn {
+  align-self: flex-end;
+  justify-self: flex-end;
+}

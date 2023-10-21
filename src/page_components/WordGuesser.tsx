@@ -4,12 +4,17 @@ import '../css/WordGuesser.css';
 
 function WordGuesser() {
     const [guessResult, setGuessResult] = useState<JSX.Element[]>([]);
+    const [guessResultKeyboard, setGuessResultKeyboard] = useState<JSX.Element[]>([]);
     const [wordGuess, setWordGuess] = useState<string>("");
     const [alertVisible, setAlertVisible] = useState<boolean>(false);
+
+    const [keyboardCharColour, setKeyboardCharColour] = useState<CharColour[]>([]);
+
 
     const alertText = useRef("")
     const rowNum = useRef(1);
     const answer = useRef("");
+
     const answerPool = 
     [
         "ADA", "ALGOL", "APL", "ASSEMBLY", "AUTOHOTKEY", "AUTOIT", "BASIC", "BATCH", "C", "COBOL", "C++", "C#", "CLOJURE",
@@ -21,7 +26,6 @@ function WordGuesser() {
     ]
 
     // the words list is made up of programming languages, as well as major javascript frameworks. All words are between one and ten characters long.
-
     const resultArr: Array<CharColour> = [];
 
     interface CharColour {
@@ -30,11 +34,67 @@ function WordGuesser() {
         rowNumber: number;
     }
 
+    const blue = "#818dcd";
+    const brown = "#E97451";
+    const grey = "grey";
+    const black = "#313131"
+
     useEffect(() => {
         const randomNum = Math.floor(Math.random() * (answerPool.length));
         answer.current = answerPool[randomNum];
         console.log("The new correct answer is: " + answer.current);
     }, []);
+
+    useEffect(() => {
+        const keyArr: Array<CharColour> = [];
+        const alphabet = [
+            "Q","W","E","R","T","Y","U","I","O","P",
+            "A","S","D","F","G","H","J","K","L",
+            "Z","X","C","V","B","N","M"
+        ];
+
+        for (let i = 0; i < alphabet.length; i++) {
+            const result = keyboardCharColour.filter((elem) => elem.char === alphabet[i]);
+            let colour = grey;
+            let rowNumber = 1;
+            for (const elem of result) {
+                if (elem.colour === blue) {
+                    colour = blue;
+                }
+                else if (elem.colour === brown && colour != blue) {
+                    colour = brown;
+                }
+                else if (elem.colour === black && colour != blue && colour != brown) {
+                    colour = black
+                }
+            }
+
+            if (i > 18) {
+                rowNumber = 3;
+            }
+            else if (i > 9) {
+                rowNumber = 2;
+            }
+            else {
+                rowNumber = 1;
+            }
+
+            keyArr.push(
+                {
+                    char: alphabet[i],
+                    colour: colour,
+                    rowNumber: rowNumber,
+                }
+            );
+            
+        }
+        
+        const keyboard = keyArr.map((charColour) => 
+            <input type="text" value={charColour.char} className="charDisplayKeyboard" disabled={true} style={{backgroundColor: charColour.colour, gridRow: charColour.rowNumber}}/>
+        )
+        
+        setGuessResultKeyboard(keyboard);
+    }, [wordGuess])
 
     function categorizeChars() {
         let tempAnswer = answer.current.toUpperCase();
@@ -48,12 +108,12 @@ function WordGuesser() {
 
             if (guessChar === answerChar) {
                 tempAnswer = tempAnswer.replace(guessChar, "*");
-                charColour = "#818dcd";
+                charColour = blue;
             } else if (tempAnswer.includes(guessChar)) {
                 tempAnswer = tempAnswer.replace(guessChar, "*");
-                charColour = "#E97451";
+                charColour = brown;
             } else {
-                charColour = "grey";
+                charColour = black;
             }
 
             resultArr.push(
@@ -65,6 +125,7 @@ function WordGuesser() {
             );
             console.log("answer is now: " + tempAnswer);
         }
+        setKeyboardCharColour([...keyboardCharColour, ...resultArr])
     }
 
     function clickHandler() {
@@ -113,6 +174,9 @@ function WordGuesser() {
             {alertVisible === true && ( 
                 <div className="wordGuessAlert">{alertText.current}</div>
             )}
+        </div>
+        <div className="wordGuessKeyboard">
+            {guessResultKeyboard}
         </div>
         </>
     );

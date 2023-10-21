@@ -3,13 +3,15 @@ import { useState } from 'react';
 import SkipPage from '../SkipPage/SkipPage';
 import { insertStrike, moveStrike, slideTransition } from '../../utils/textTransitions';
 import parse from 'html-react-parser';
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 function StartPage() {
   const [textVal, setText] = useState<String>();
   const [professionText, setProfessionText] = useState(() => "Software Engineering Student");
   // it's possible that reading the updated professionText after setting it wasn't working cause I didn't use the spread operator (..)
   // This makes it create a new object rather than mutating the existing one, which makes sure useState realizes the value has changed.
+
+  const navigate = useNavigate()
 
   function clickHandle() {
     // alert('Would you really be the one to miss the show?');
@@ -51,9 +53,7 @@ function StartPage() {
         <button className="btn" onClick={changeText}>Skip all these gimmicks</button>
       </div>
       <div className="bottomRightBox">
-         <Link to="/wordGuess"><button className="btn">SKIP</button></Link>
-        
-        
+         <button className="btn skipBtn" onClick={() => navigate("/wordGuess")}>START</button>
       </div>
     </>
   );
