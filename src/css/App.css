@@ -12,7 +12,7 @@
   display: grid;
   grid-template-columns: minmax(20px, 1fr) auto minmax(20px, 1fr);
   grid-template-rows: minmax(13vw, 1fr) auto minmax(100px, 1fr);
-  height: 100vh;
+  min-height: 100vh;
   background-color: #202020;
    /*font-family:monospace;
   color: #61dafb;

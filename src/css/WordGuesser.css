@@ -68,16 +68,16 @@
     display: grid;
     grid-column: 2 / 2;
     grid-row: 3 / 3;
-    grid-template-columns: repeat(10, 45px);
-    grid-template-rows: repeat(6, 45px);
+    grid-template-columns: repeat(10, 50px);
+    grid-template-rows: repeat(6, 50px);
     justify-self: center;
     align-self: flex-start;
     margin: 10px;
 }
 
 .charDisplayKeyboard {
-    height: 45px;
-    width: 45px;
+    height: 50px;
+    width: 50px;
     margin: 0px;
     padding: 0px;
     justify-self: center;

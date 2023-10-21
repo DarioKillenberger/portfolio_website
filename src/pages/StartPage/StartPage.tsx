@@ -1,5 +1,5 @@
 import '../../css/StartPage.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import SkipPage from '../SkipPage/SkipPage';
 import { insertStrike, moveStrike, slideTransition } from '../../utils/textTransitions';
 import parse from 'html-react-parser';
@@ -16,6 +16,10 @@ function StartPage() {
   function clickHandle() {
     // alert('Would you really be the one to miss the show?');
   }
+
+  useEffect(() => {
+    changeText();
+  }, [])
 
   const changeText = async () => {
     const professionArr = ["Software Engineering Student", "Cycling Enthusiast",

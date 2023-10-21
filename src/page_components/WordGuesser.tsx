@@ -2,42 +2,39 @@ import { Interface } from "readline";
 import { useState, useEffect, useRef } from 'react';
 import '../css/WordGuesser.css';
 
+//TODO: Make the error alert pop over not inline, create winning/losing screen which also reveals word
+
 function WordGuesser() {
     const [guessResult, setGuessResult] = useState<JSX.Element[]>([]);
     const [guessResultKeyboard, setGuessResultKeyboard] = useState<JSX.Element[]>([]);
     const [wordGuess, setWordGuess] = useState<string>("");
     const [alertVisible, setAlertVisible] = useState<boolean>(false);
-
     const [keyboardCharColour, setKeyboardCharColour] = useState<CharColour[]>([]);
-
 
     const alertText = useRef("")
     const rowNum = useRef(1);
     const answer = useRef("");
-
     const answerPool = 
     [
         "ADA", "ALGOL", "APL", "ASSEMBLY", "AUTOHOTKEY", "AUTOIT", "BASIC", "BATCH", "C", "COBOL", "C++", "C#", "CLOJURE",
-        "CoffeeScript", "LISP", "CRYSTAL", "CSS", "DART", "DELPHI", "EIFFEL", "ELIXIR", "ELM", "ERLANG", "F#",
+        "LISP", "CRYSTAL", "CSS", "DART", "DELPHI", "EIFFEL", "ELIXIR", "ELM", "ERLANG", "F#",
         "FACTOR", "FORTH", "FORTRAN", "GO", "GROOVY", "HASKELL", "HTML", "JAVA", "JAVASCRIPT", "JULIA", "KOTLIN", "LUA",
         "MATLAB", "NIM","OCAML","PASCAL","PERL","PHP","POWERSHELL","PROLOG","PYTHON","R","RUBY","RUST",
         "SCALA","SCHEME","SCRATCH","SMALLTALK","SQL","SWIFT","ANGULAR","REACT","VUE.JS","EMBER.JS","MITHRIL","NODE.JS",
         "POLYMER","SVELTE","EXPRESS.JS","NEXT.JS","MOCHA", "TYPESCRIPT"
-    ]
-
-    // the words list is made up of programming languages, as well as major javascript frameworks. All words are between one and ten characters long.
+    ] // the words list is made up of programming languages, as well as major javascript frameworks. All words are between one and ten characters long.
+    
     const resultArr: Array<CharColour> = [];
+    const blue = "#818dcd";
+    const brown = "#E97451";
+    const grey = "grey";
+    const black = "#313131"
 
     interface CharColour {
         char: string;
         colour: string;
         rowNumber: number;
     }
-
-    const blue = "#818dcd";
-    const brown = "#E97451";
-    const grey = "grey";
-    const black = "#313131"
 
     useEffect(() => {
         const randomNum = Math.floor(Math.random() * (answerPool.length));
@@ -49,8 +46,8 @@ function WordGuesser() {
         const keyArr: Array<CharColour> = [];
         const alphabet = [
             "Q","W","E","R","T","Y","U","I","O","P",
-            "A","S","D","F","G","H","J","K","L",
-            "Z","X","C","V","B","N","M"
+            "A","S","D","F","G","H","J","K","L","del",
+            "Z","X","C","V","B","N","M", ".","","clr"
         ];
 
         for (let i = 0; i < alphabet.length; i++) {
@@ -69,7 +66,7 @@ function WordGuesser() {
                 }
             }
 
-            if (i > 18) {
+            if (i > 19) {
                 rowNumber = 3;
             }
             else if (i > 9) {
@@ -86,15 +83,27 @@ function WordGuesser() {
                     rowNumber: rowNumber,
                 }
             );
-            
         }
         
         const keyboard = keyArr.map((charColour) => 
-            <input type="text" value={charColour.char} className="charDisplayKeyboard" disabled={true} style={{backgroundColor: charColour.colour, gridRow: charColour.rowNumber}}/>
+            <button className="charDisplayKeyboard"  onClick={() => setInputField(charColour.char)} style={{backgroundColor: charColour.colour, gridRow: charColour.rowNumber}}>{charColour.char}</button>
         )
         
         setGuessResultKeyboard(keyboard);
     }, [wordGuess])
+
+    function setInputField(char:string) {
+        console.log("Setting input field to: " + char);
+        if (char === "del") {
+            setWordGuess(wordGuess.slice(0, -1));
+        }
+        else if (char === "clr") {
+            setWordGuess("");
+        }
+        else {
+            setWordGuess(wordGuess + char);
+        }
+    }
 
     function categorizeChars() {
         let tempAnswer = answer.current.toUpperCase();
