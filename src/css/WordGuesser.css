@@ -1,6 +1,7 @@
 
 .wordGuessContainer {
     display: grid;
+    position: relative;
     grid-column: 2 / 2;
     grid-row: 2 / 2;
     grid-template-columns: repeat(10, 65px);
@@ -59,9 +60,14 @@
 .wordGuessAlert {
     background-color: green;
     grid-column: 4 / 7;
-    grid-row: 9 / 9;
+    grid-row: 5 / 6;
     border-radius: 5px;
-    padding: 8px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    align-self: flex-end;
+    position: absolute;
+    width: 100%;
+    border: 2px solid #ffffff;
 }
 
 .wordGuessKeyboard {

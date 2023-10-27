@@ -6,12 +6,13 @@ var img2 = require('../assets/c++_vendingMachine.png');
 var img3 = require('../assets/social_website.png');
 var img4 = require('../assets/minecraft_terrainGen.png');
 var img5 = require('../assets/movieRecommenderTuning.png');
+var img6 = require('../assets/arduinoLED.JPG');
 
 function MyProjects() {
   const [activeImg, setActiveImg] = useState <number>(0);
 
-  const imgClass = "imgTrim";
-  const imgClassSelected = "imgNoTrim";
+  const imgClass = "animation1 imgTrim";
+  const imgClassSelected = "animation2 imgNoTrim";
   
   function mouseHover(elemIndex:number) {
     setActiveImg(elemIndex);
@@ -31,6 +32,7 @@ function MyProjects() {
         <div className={activeImg === 3 ? imgClassSelected : imgClass}><img className='bannerImg' src={img3} alt="Logo" onMouseEnter={() => mouseHover(3)} onMouseLeave={() => {mouseHover(0)}}/></div>
         <div className={activeImg === 4 ? imgClassSelected : imgClass}><img className='bannerImg' src={img4} alt="Logo" onMouseEnter={() => mouseHover(4)} onMouseLeave={() => {mouseHover(0)}}/></div>
         <div className={activeImg === 5 ? imgClassSelected : imgClass}><img className='bannerImg' src={img5} alt="Logo" onMouseEnter={() => mouseHover(5)} onMouseLeave={() => {mouseHover(0)}}/></div>
+        <div className={activeImg === 6 ? imgClassSelected : imgClass}><img className='bannerImg' src={img6} alt="Logo" onMouseEnter={() => mouseHover(6)} onMouseLeave={() => {mouseHover(0)}} style={{marginLeft: -300}}/></div>
       </div>
       </>
       );

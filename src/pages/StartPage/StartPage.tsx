@@ -23,7 +23,7 @@ function StartPage() {
 
   const changeText = async () => {
     const professionArr = ["Software Engineering Student", "Cycling Enthusiast",
-    "Java Experience", "Javascript Experience", "React Experience", "Python Experience", "C++ Experience"];
+    "Java Experience", "Javascript Experience", "React Experience", "Python Experience", "C++ Experience", "History Enthusiast", "SQL Experience", "Typescript Experience", "3d Printing", "Ardiuno Tinkering"];
     setProfessionText(professionArr[0]);
     await new Promise(resolve => setTimeout(resolve, 2000));
 
