@@ -1,0 +1,61 @@
+.vine {
+    position: relative;
+    grid-column: 2/2;
+    grid-row: 1/13;
+    width: calc(200px + 20vw);
+    min-width: 100px;
+    align-self: center;
+    justify-self: center;
+    margin-left: -16vw;
+    margin-right: -16vw;
+}
+
+.experienceContent {
+    background-color: rgb(41, 41, 41);
+    /* height: fit-content;
+    width: fit-content; */
+    border-radius: 20px;
+    border-color: #0F8241;
+    border-style: solid;
+    overflow: hidden;
+    text-align: center;
+    font-size: 0.5vw;
+}
+
+
+.experienceBox:nth-child(2n) {
+    align-self: center;
+    justify-self: flex-end;
+    z-index: 2;
+    margin-top: 130px;
+}
+
+.experienceBox:nth-child(2n+1) {
+    align-self: center;
+    justify-self: flex-start;
+    z-index: 2;
+    margin-top: 130px;
+    /* transform-origin: top left; */
+}
+
+
+.experienceGrid {
+    display: grid;
+    grid-column: 1 / 4;
+    grid-row: 1 / 4;
+    grid-template-columns: 1fr calc(150px + 20vw) 1fr;
+    grid-template-rows: repeat(12, 1fr);
+    /* background-color: rgb(64, 64, 64); */
+}
+
+.leftLeaf {
+    width: 200px;
+    align-self: center;
+    justify-self: end;
+}
+
+.rightLeaf {
+    width: 100px;
+    align-self: center;
+    justify-self: end;
+}

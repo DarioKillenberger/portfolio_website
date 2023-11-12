@@ -24,6 +24,19 @@
     align-self:last baseline;
     color: rgb(95, 134, 206);
     font-size: 25px;
+    animation: 4s ease-out 0s 1 portfolioTitle forwards;
+}
+
+@keyframes portfolioTitle {
+    0% {
+        opacity: 0%;
+    }
+    70% {
+        opacity: 0%;
+    }
+    100% {
+        opacity: 100%;
+    }
 }
 
 /* .table {

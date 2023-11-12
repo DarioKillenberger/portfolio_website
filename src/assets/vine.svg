@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70.57 806.02">
+  <defs>
+    <style>
+      .uuid-c7d0f550-b24d-443f-b101-e8d021bd5d9a {
+        stroke-width: 5px;
+      }
+
+      .uuid-c7d0f550-b24d-443f-b101-e8d021bd5d9a, .uuid-b97b5816-c7ea-4305-a6af-6582f8a2dcdf {
+        fill: none;
+        stroke: #0f8241;
+        stroke-miterlimit: 10;
+      }
+
+      .uuid-b97b5816-c7ea-4305-a6af-6582f8a2dcdf {
+        stroke-width: 4px;
+      }
+    </style>
+  </defs>
+  <g id="uuid-2cc33790-e320-4e2a-b068-1998f1570571" data-name="Layer 1">
+    <line class="uuid-c7d0f550-b24d-443f-b101-e8d021bd5d9a" x1="35.29" x2="35.29" y2="806.02"/>
+  </g>
+  <g id="uuid-f2714fbb-78d1-417b-b0c2-7df873d0bf66" data-name="Layer 2">
+    <line class="uuid-b97b5816-c7ea-4305-a6af-6582f8a2dcdf" x1="35.29" y1="18.49" x2="1.02" y2="38.77"/>
+    <line class="uuid-b97b5816-c7ea-4305-a6af-6582f8a2dcdf" x1="35.29" y1="151.5" x2="1.02" y2="171.78"/>
+    <line class="uuid-b97b5816-c7ea-4305-a6af-6582f8a2dcdf" x1="35.29" y1="284.51" x2="1.02" y2="304.79"/>
+    <line class="uuid-b97b5816-c7ea-4305-a6af-6582f8a2dcdf" x1="35.29" y1="417.52" x2="1.02" y2="437.8"/>
+    <line class="uuid-b97b5816-c7ea-4305-a6af-6582f8a2dcdf" x1="35.29" y1="550.53" x2="1.02" y2="570.81"/>
+    <line class="uuid-b97b5816-c7ea-4305-a6af-6582f8a2dcdf" x1="35.29" y1="683.54" x2="1.02" y2="703.83"/>
+    <line class="uuid-b97b5816-c7ea-4305-a6af-6582f8a2dcdf" x1="35.29" y1="84.99" x2="69.55" y2="105.28"/>
+    <line class="uuid-b97b5816-c7ea-4305-a6af-6582f8a2dcdf" x1="35.29" y1="218.01" x2="69.55" y2="238.29"/>
+    <line class="uuid-b97b5816-c7ea-4305-a6af-6582f8a2dcdf" x1="35.29" y1="351.02" x2="69.55" y2="371.3"/>
+    <line class="uuid-b97b5816-c7ea-4305-a6af-6582f8a2dcdf" x1="35.29" y1="484.03" x2="69.55" y2="504.31"/>
+    <line class="uuid-b97b5816-c7ea-4305-a6af-6582f8a2dcdf" x1="35.29" y1="617.04" x2="69.55" y2="637.32"/>
+    <line class="uuid-b97b5816-c7ea-4305-a6af-6582f8a2dcdf" x1="9.33" y1="792" x2="61.25" y2="792"/>
+  </g>
+</svg>

@@ -6,6 +6,7 @@ import StartPage from './pages/StartPage/StartPage';
 import { BrowserRouter, Routes, Route, createBrowserRouter, createRoutesFromElements, Link, RouterProvider } from 'react-router-dom';
 import MyProjects from './pages/MyProjects';
 import WordPage from './pages/WordPage';
+import ResumePage from './pages/ResumePage';
 
 
 const router = createBrowserRouter([
@@ -27,6 +28,11 @@ const router = createBrowserRouter([
   {
     path: "/projects",
     element: <MyProjects/>,
+    // errorElement: <ErrorPage />,
+  },
+  {
+    path: "/resume",
+    element: <ResumePage/>,
     // errorElement: <ErrorPage />,
   },
 
