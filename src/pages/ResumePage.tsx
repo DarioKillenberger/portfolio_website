@@ -20,7 +20,7 @@ function ResumePage() {
                 year: "06/2023 - Present", 
                 company:"JDR Software",
                 responsibilities: [
-                    "Automating test scripts using javascript/webdriver.io/mocha/chai",
+                    "Automating test scripts using Javascript/Webdriver.io/Mocha/Chai",
                     "Creating and modifying test scripts to test bugs, raising and resolving jira bug tickets",
                     "Manual regression testing using testrail",
                     "Creating and merging branches using git and bitbucket, resolving merge conflicts, making pull requests"
@@ -115,21 +115,27 @@ function ResumePage() {
             borderStyle: 'solid',
         }
         const variants = {
-            open: { borderColor: 'hsl(15, 130, 65)'},
+            open: { 
+                borderColor: 'hsl(15, 130, 65)',
+                scale: 1.1
+            },
         }
         
         return (
           <>
           <div className='experienceGrid'>
+          
             <VineImg className='vine'/>
             {
                 experienceArr.map((elem, index) => (
                     <>
                         <div className='experienceBox' >
-                            <motion.div className='experienceContent' onMouseEnter={() => setActiveHover(index)} onMouseLeave={() => setActiveHover(-1)}
+                            <motion.div  onMouseEnter={() => setActiveHover(index)} onMouseLeave={() => setActiveHover(-1)}
+                                className='experienceContent'
                                 initial={experienceBoxUnhover}
                                 animate={activeHover == index ? experienceBoxHover : experienceBoxUnhover}
                                 whileInView="open"
+                                transition={{ ease: "easeOut", duration: 0.1 }}
                                 viewport={{ once: false, amount: 1 }}
                                 variants={variants}
                             >   
@@ -137,6 +143,7 @@ function ResumePage() {
                                 <h2>{elem.company}</h2>
                                 <h2>{elem.year}</h2>
                                 <ul>
+                                <h4>Responsibilities</h4>
                                     {activeHover == index ? elem.responsibilities.map((responsibility) => (
                                         <li>{responsibility}</li>
                                     )): ""}
@@ -149,7 +156,6 @@ function ResumePage() {
                 ))
             }
           </div>
-            
           </>
         );
       }
