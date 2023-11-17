@@ -1,7 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import '../css/MyProjects.css';
-import { Link } from "react-router-dom";
-import { motion } from "framer-motion"
 
 var img1 = require('../assets/dogInsurance_24hour.png');
 var img2 = require('../assets/c++_vendingMachine.png');
@@ -32,7 +30,7 @@ function MyProjects() {
       </div>
       <div className='pictureBox'>
           {imgArr.map((img, index) => (
-              <img className={activeImg === index+1 ? imgClassSelected : imgClass} src={img} alt="Logo" onClick={activeImg == index+1 ? () => mouseHover(0) : () => mouseHover(index+1)}/>
+              <img className={activeImg === index+1 ? imgClassSelected : imgClass} src={img} alt="Logo" onClick={activeImg === index+1 ? () => mouseHover(0) : () => mouseHover(index+1)}/>
             ))
           }
       </div>

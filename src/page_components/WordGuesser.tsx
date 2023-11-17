@@ -1,5 +1,4 @@
-import { Interface } from "readline";
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 import '../css/WordGuesser.css';
 
 //TODO: Make the error alert pop over not inline, create winning/losing screen which also reveals word
@@ -14,15 +13,17 @@ function WordGuesser() {
     const alertText = useRef("")
     const rowNum = useRef(1);
     const answer = useRef("");
-    const answerPool = 
-    [
-        "ADA", "ALGOL", "APL", "ASSEMBLY", "AUTOHOTKEY", "AUTOIT", "BASIC", "BATCH", "C", "COBOL", "C++", "C#", "CLOJURE",
-        "LISP", "CRYSTAL", "CSS", "DART", "DELPHI", "EIFFEL", "ELIXIR", "ELM", "ERLANG", "F#",
-        "FACTOR", "FORTH", "FORTRAN", "GO", "GROOVY", "HASKELL", "HTML", "JAVA", "JAVASCRIPT", "JULIA", "KOTLIN", "LUA",
-        "MATLAB", "NIM","OCAML","PASCAL","PERL","PHP","POWERSHELL","PROLOG","PYTHON","R","RUBY","RUST",
-        "SCALA","SCHEME","SCRATCH","SMALLTALK","SQL","SWIFT","ANGULAR","REACT","VUE.JS","EMBER.JS","MITHRIL","NODE.JS",
-        "POLYMER","SVELTE","EXPRESS.JS","NEXT.JS","MOCHA", "TYPESCRIPT"
-    ] // the words list is made up of programming languages, as well as major javascript frameworks. All words are between one and ten characters long.
+    const answerPool = useMemo(() => {
+        return [
+            "ADA", "ALGOL", "APL", "ASSEMBLY", "AUTOHOTKEY", "AUTOIT", "BASIC", "BATCH", "C", "COBOL", "C++", "C#", "CLOJURE",
+            "LISP", "CRYSTAL", "CSS", "DART", "DELPHI", "EIFFEL", "ELIXIR", "ELM", "ERLANG", "F#",
+            "FACTOR", "FORTH", "FORTRAN", "GO", "GROOVY", "HASKELL", "HTML", "JAVA", "JAVASCRIPT", "JULIA", "KOTLIN", "LUA",
+            "MATLAB", "NIM","OCAML","PASCAL","PERL","PHP","POWERSHELL","PROLOG","PYTHON","R","RUBY","RUST",
+            "SCALA","SCHEME","SCRATCH","SMALLTALK","SQL","SWIFT","ANGULAR","REACT","VUE.JS","EMBER.JS","MITHRIL","NODE.JS",
+            "POLYMER","SVELTE","EXPRESS.JS","NEXT.JS","MOCHA", "TYPESCRIPT"
+        ] // the words list is made up of programming languages, as well as major javascript frameworks. All words are between one and ten characters long. };
+    }, []);
+    
     
     const resultArr: Array<CharColour> = [];
     const blue = "#818dcd";
@@ -40,9 +41,22 @@ function WordGuesser() {
         const randomNum = Math.floor(Math.random() * (answerPool.length));
         answer.current = answerPool[randomNum];
         console.log("The new correct answer is: " + answer.current);
-    }, []);
+    }, [answerPool]);
 
     useEffect(() => {
+        function setInputField(char:string) {
+            console.log("Setting input field to: " + char);
+            if (char === "del") {
+                setWordGuess(wordGuess.slice(0, -1));
+            }
+            else if (char === "clr") {
+                setWordGuess("");
+            }
+            else {
+                setWordGuess(wordGuess + char);
+            }
+        }
+        
         const keyArr: Array<CharColour> = [];
         const alphabet = [
             "Q","W","E","R","T","Y","U","I","O","P",
@@ -58,10 +72,10 @@ function WordGuesser() {
                 if (elem.colour === blue) {
                     colour = blue;
                 }
-                else if (elem.colour === brown && colour != blue) {
+                else if (elem.colour === brown && colour !== blue) {
                     colour = brown;
                 }
-                else if (elem.colour === black && colour != blue && colour != brown) {
+                else if (elem.colour === black && colour !== blue && colour !== brown) {
                     colour = black
                 }
             }
@@ -90,20 +104,7 @@ function WordGuesser() {
         )
         
         setGuessResultKeyboard(keyboard);
-    }, [wordGuess])
-
-    function setInputField(char:string) {
-        console.log("Setting input field to: " + char);
-        if (char === "del") {
-            setWordGuess(wordGuess.slice(0, -1));
-        }
-        else if (char === "clr") {
-            setWordGuess("");
-        }
-        else {
-            setWordGuess(wordGuess + char);
-        }
-    }
+    }, [wordGuess, keyboardCharColour])
 
     function categorizeChars() {
         let tempAnswer = answer.current.toUpperCase();
@@ -143,7 +144,7 @@ function WordGuesser() {
             alertText.current = "You've already had 5 guesses!!";
             setTimeout(() => {setAlertVisible(false)}, 3000); 
         }
-        else if (wordGuess == "") {
+        else if (wordGuess === "") {
             setAlertVisible(true);
             alertText.current = "Please enter a word!";
             setTimeout(() => {setAlertVisible(false)}, 3000); 

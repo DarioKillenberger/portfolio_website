@@ -1,5 +1,5 @@
 import WordGuesser from "../page_components/WordGuesser";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function WordPage() {
     const navigate = useNavigate()

@@ -2,7 +2,7 @@ import '../css/ResumePage.css';
 import { motion } from "framer-motion"
 import { useState } from 'react';
 import {ReactComponent as VineImg} from '../assets/vine.svg';
-import {ReactComponent as LeafImg} from '../assets/leaf.svg';
+// import {ReactComponent as LeafImg} from '../assets/leaf.svg';
 
 function ResumePage() {
         const [activeHover, setActiveHover] = useState<number>();    
@@ -133,7 +133,7 @@ function ResumePage() {
                             <motion.div  onMouseEnter={() => setActiveHover(index)} onMouseLeave={() => setActiveHover(-1)}
                                 className='experienceContent'
                                 initial={experienceBoxUnhover}
-                                animate={activeHover == index ? experienceBoxHover : experienceBoxUnhover}
+                                animate={activeHover === index ? experienceBoxHover : experienceBoxUnhover}
                                 whileInView="open"
                                 transition={{ ease: "easeOut", duration: 0.1 }}
                                 viewport={{ once: false, amount: 1 }}
@@ -144,14 +144,14 @@ function ResumePage() {
                                 <h2>{elem.year}</h2>
                                 <ul>
                                 <h4>Responsibilities</h4>
-                                    {activeHover == index ? elem.responsibilities.map((responsibility) => (
+                                    {activeHover === index ? elem.responsibilities.map((responsibility) => (
                                         <li>{responsibility}</li>
                                     )): ""}
                                 </ul>
                             </motion.div>
                         </div>
                         {/* TODO: This should be temp. Probably better to assign absolute grid positions using similar formula to below */}
-                        {(index) % 4 == 0 || (index) % 4 == 2 ? <><div className='experienceBox' ></div><div className='experienceBox' ></div></> : null} 
+                        {(index) % 4 === 0 || (index) % 4 === 2 ? <><div className='experienceBox' ></div><div className='experienceBox' ></div></> : null} 
                     </>
                 ))
             }
