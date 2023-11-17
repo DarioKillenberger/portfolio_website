@@ -20,7 +20,7 @@ function WordGuesser() {
             "FACTOR", "FORTH", "FORTRAN", "GO", "GROOVY", "HASKELL", "HTML", "JAVA", "JAVASCRIPT", "JULIA", "KOTLIN", "LUA",
             "MATLAB", "NIM","OCAML","PASCAL","PERL","PHP","POWERSHELL","PROLOG","PYTHON","R","RUBY","RUST",
             "SCALA","SCHEME","SCRATCH","SMALLTALK","SQL","SWIFT","ANGULAR","REACT","VUE.JS","EMBER.JS","MITHRIL","NODE.JS",
-            "POLYMER","SVELTE","EXPRESS.JS","NEXT.JS","MOCHA", "TYPESCRIPT"
+            "POLYMER","SVELTE","EXPRESS.JS","NEXT.JS","MOCHA", "TYPESCRIPT", "JQUERY", "GRAPHQL"
         ] // the words list is made up of programming languages, as well as major javascript frameworks. All words are between one and ten characters long. };
     }, []);
     
