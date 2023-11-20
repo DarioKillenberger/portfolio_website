@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import SkipBtn from '../page_components/SkipBtn';
 import '../css/MyProjects.css';
 
 var img1 = require('../assets/dogInsurance_24hour.png');
@@ -22,6 +23,11 @@ function MyProjects() {
 
     return (
       <>
+      <div className="topRightBox">
+        <SkipBtn navTarget="/resume"/>
+      </div>
+      
+      
       <h2 className="portfolioTitle">View my projects below!</h2>
       <div className="portfolioContainer">
       </div>

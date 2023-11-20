@@ -43,5 +43,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "netlify-cli": "^17.2.2"
+  },
+  "resolutions": {
+    "@types/react": "^17.0.38"
   }
 }
