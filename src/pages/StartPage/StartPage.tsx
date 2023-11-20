@@ -2,7 +2,6 @@ import '../../css/StartPage.css';
 import { useEffect, useState } from 'react';
 import { insertStrike, moveStrike, slideTransition } from '../../utils/textTransitions';
 import parse from 'html-react-parser';
-import { useNavigate } from "react-router-dom"
 import PlayBtn from '../../page_components/PlayBtn';
 import SkipBtn from '../../page_components/SkipBtn';
 
