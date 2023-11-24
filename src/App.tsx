@@ -7,6 +7,7 @@ import MyProjects from './pages/MyProjects';
 import WordPage from './pages/WordPage';
 import ResumePage from './pages/ResumePage';
 import ResumeV2 from './pages/ResumeV2';
+import ResumeV3 from './pages/ResumePageV3';
 
 
 const router = createBrowserRouter([
@@ -32,7 +33,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/resume",
-    element: <ResumeV2/>,
+    element: <ResumeV3/>,
     // errorElement: <ErrorPage />,
   },
 
