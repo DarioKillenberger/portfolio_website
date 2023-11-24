@@ -4,9 +4,6 @@ import SkipBtn from "../page_components/SkipBtn";
 
 function WordPage() {
     const navigate = useNavigate()
-    function changeText() {
-        
-    }
     return(
         <>
         <WordGuesser/>
@@ -14,8 +11,8 @@ function WordPage() {
            <SkipBtn navTarget="/projects"/>
         </div>
         <div className="bottomRightBox">
-            <button className="btn" onClick={changeText}>More info</button>
-            <button className="btn skipBtn" onClick={() => navigate("/projects")}>Skip this plz!</button>
+            {/* <button className="btn" onClick={changeText}>More info</button>
+            <button className="btn skipBtn" onClick={() => navigate("/projects")}>Skip this plz!</button> */}
         </div>
         </>
     )

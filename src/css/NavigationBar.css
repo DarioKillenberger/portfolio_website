@@ -1,0 +1,39 @@
+.navBarGrid {
+    grid-column: 1/4;
+    grid-row: 1/2;
+    display: grid;
+    grid-template-columns: repeat(5, 15vw);
+    grid-template-rows: 20px fit-content(100%) 20px;
+    justify-self: center;
+    margin-top: 20px;
+    z-index: 20;
+}
+
+
+.navBarLine {
+    grid-column: 1/11;
+    grid-row: 2/2;
+    width: 100%;
+    height: 5px;
+    align-self: center;
+    background-color: rgba(79, 127, 222, 0.478);
+}
+
+.linkText {
+    cursor: pointer;
+}
+
+.linkText:nth-child(2n) {
+    justify-self: center;
+    align-self: center;
+    grid-row: 1/2;
+    grid-column: calc(1n);
+    color: aliceblue;
+}
+
+.linkText:nth-child(2n+1) {
+    justify-self: center;
+    align-self: center;
+    grid-row: 3/4;
+    color: aliceblue;
+}
