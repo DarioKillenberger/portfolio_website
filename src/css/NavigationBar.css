@@ -7,6 +7,8 @@
     justify-self: center;
     margin-top: 20px;
     z-index: 20;
+    overflow: hidden;
+    position: absolute;
 }
 
 
@@ -36,4 +38,14 @@
     align-self: center;
     grid-row: 3/4;
     color: aliceblue;
+}
+
+.navBarMask{ 
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #202020;
+    opacity: 1;
+    z-index: 2;
 }
