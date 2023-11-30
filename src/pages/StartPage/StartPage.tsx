@@ -47,7 +47,7 @@ function StartPage() {
           <div id="professionText">{parse(professionText)}</div>
       </div>
       <div className="topRightBox">
-        <SkipBtn navTarget="/projects"/>
+        {/* <SkipBtn navTarget="/projects"/> */}
       </div>
       <div className="bottomMiddleBox">
       <PlayBtn navTarget="/wordGuess"/>
