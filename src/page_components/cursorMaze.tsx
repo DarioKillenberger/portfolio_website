@@ -1,7 +1,5 @@
 import '../css/ResumePage.css';
-import { motion } from "framer-motion"
 import { useState, useEffect } from 'react';
-import { flushSync } from "react-dom";
 
 function CursorMaze() {
   const [mazeObjects, setMazeObects] = useState<mazeObject[]>([]);
@@ -10,34 +8,34 @@ function CursorMaze() {
     rotation: number;
   }
 
-  function timeout(delay: number) {
-    return new Promise( res => setTimeout(res, delay) );
-  }
-
   const mazeRefreshInterval = 10000;
   const mazeUpdateSpeed = 20;
   
-  function updateMaze() {
-    let tempMaze = mazeObjects;
-    let index = 0;
-    const interval = setInterval(() => {
-      tempMaze[index] = {rotation: randomNum()};
-      setMazeObects([...tempMaze]);
-      ++index;
-      if(index >= 150){
-        clearInterval(interval);
-      }
-    }, mazeUpdateSpeed);
-    return () => clearInterval(interval);
-  }
+  
 
   useEffect(() => {
+    function updateMaze() {
+      let tempMaze = mazeObjects;
+      let index = 0;
+      const interval = setInterval(() => {
+        tempMaze[index] = {rotation: randomNum()};
+        setMazeObects([...tempMaze]);
+        ++index;
+        if(index >= 150){
+          clearInterval(interval);
+        }
+      }, mazeUpdateSpeed);
+      return () => clearInterval(interval);
+    }
+
     updateMaze();
+
     const refreshInterval = setInterval(() => {
       updateMaze();
     }, mazeRefreshInterval);
+
     return () => clearInterval(refreshInterval);
-  }, []);
+  }, [mazeObjects]);
 
 
   function randomNum(min = 0, max = 3) {

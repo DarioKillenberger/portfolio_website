@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { insertStrike, moveStrike, slideTransition } from '../../utils/textTransitions';
 import parse from 'html-react-parser';
 import PlayBtn from '../../page_components/PlayBtn';
-import SkipBtn from '../../page_components/SkipBtn';
+// import SkipBtn from '../../page_components/SkipBtn';
 
 function StartPage() {
   const [professionText, setProfessionText] = useState(() => "Software Engineering Student");

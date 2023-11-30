@@ -1,9 +1,9 @@
 import WordGuesser from "../page_components/WordGuesser";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import SkipBtn from "../page_components/SkipBtn";
 
 function WordPage() {
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
     return(
         <>
         <WordGuesser/>
