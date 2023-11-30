@@ -1,46 +1,22 @@
-# Getting Started with Create React App
+# Portfolio Website by Dario Killenberger
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Technologies/third party components used for each page:
 
-## Available Scripts
+### Home Page
+- My own bare hands
+- Some .svg animation tutorials
+- CSS animations...
 
-In the project directory, you can run:
+### Word Guesser
+- Blood, Sweat and Tears
 
-### `npm start`
+### My Projects
+- CSS animations
+- Framer Motion??
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Resume
+- Framer Motion
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## About this site and why I made it
+This is not a traditional portfolio website... and it's not meant to be. This is meant to be a bit of React/Javascript practice, as well as familiarizing myself with Typescript. I use a lot of random stuff, and not consistently across all pages (I know I could use framer motion in place of the CSS animations on earlier pages), as I want to experiment with different approaches.
