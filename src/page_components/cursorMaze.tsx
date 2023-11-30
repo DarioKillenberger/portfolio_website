@@ -11,32 +11,28 @@ function CursorMaze() {
   const mazeRefreshInterval = 10000;
   const mazeUpdateSpeed = 20;
   
-  
-
+  function updateMaze() {
+    let tempMaze = mazeObjects;
+    let index = 0;
+    const interval = setInterval(() => {
+      tempMaze[index] = {rotation: randomNum()};
+      setMazeObects([...tempMaze]);
+      ++index;
+      if(index >= 150){
+        clearInterval(interval);
+      }
+    }, mazeUpdateSpeed);
+    return () => clearInterval(interval);
+  }
+/* eslint-disable */
   useEffect(() => {
-    function updateMaze() {
-      let tempMaze = mazeObjects;
-      let index = 0;
-      const interval = setInterval(() => {
-        tempMaze[index] = {rotation: randomNum()};
-        setMazeObects([...tempMaze]);
-        ++index;
-        if(index >= 150){
-          clearInterval(interval);
-        }
-      }, mazeUpdateSpeed);
-      return () => clearInterval(interval);
-    }
-
     updateMaze();
-
     const refreshInterval = setInterval(() => {
       updateMaze();
     }, mazeRefreshInterval);
-
     return () => clearInterval(refreshInterval);
-  }, [mazeObjects]);
-
+  }, []); 
+/* eslint-enable */
 
   function randomNum(min = 0, max = 3) {
     const result = Math.random()*(max - min) + min
