@@ -10,7 +10,7 @@ function NavigationBar() {
 
     useEffect(() => {
         switch (location.pathname) {
-            case "":
+            case "/":
                 setProgress("-90%");
                 break;
 
