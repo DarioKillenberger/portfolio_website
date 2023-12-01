@@ -23,6 +23,7 @@
 
 .linkText {
     cursor: pointer;
+    font-size: small;
 }
 
 .linkText:nth-child(2n) {
@@ -47,5 +48,27 @@
     width: 100%;
     background-color: #202020;
     opacity: 1;
+    z-index: 3;
+}
+
+.navLineMask{ 
+    position: absolute;
+    top: 45%;
+    height: 11%;
+    width: 100%;
+    /* background-color: #a22929; */
+    background-color: #9694c0;
+    opacity: 0.5;
     z-index: 2;
+}
+
+.navBarProgress {
+    position: absolute;
+    top: 45%;
+    height: 11%;
+    width: 100%;
+    /* background-color: #a22929; */
+    background-color: #124b2c;
+    opacity: 1;
+    z-index: 3;
 }
