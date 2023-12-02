@@ -21,7 +21,7 @@ function WordGuesser() {
             "MATLAB", "NIM","OCAML","PASCAL","PERL","PHP","POWERSHELL","PROLOG","PYTHON","R","RUBY","RUST",
             "SCALA","SCHEME","SCRATCH","SMALLTALK","SQL","SWIFT","ANGULAR","REACT","VUE.JS","EMBER.JS","MITHRIL","NODE.JS",
             "POLYMER","SVELTE","EXPRESS.JS","NEXT.JS","MOCHA", "TYPESCRIPT", "JQUERY", "GRAPHQL"
-        ] // the words list is made up of programming languages, as well as major javascript frameworks. All words are between one and ten characters long. };
+        ] // the words list is made up of programming languages, as well as major javascript frameworks. All words are between one and ten characters long.
     }, []);
     
     
@@ -37,13 +37,100 @@ function WordGuesser() {
         rowNumber: number;
     }
 
+    // Hook to randomly choose the target word to guess each time the page is loaded or the answerPool array changes
     useEffect(() => {
         const randomNum = Math.floor(Math.random() * (answerPool.length));
         answer.current = answerPool[randomNum];
         console.log("The new correct answer is: " + answer.current);
     }, [answerPool]);
 
+    // Gets the answer provided by the user and assigns each letter a colour based on whether 
+    // it is incorrect, correct but in the wrong position, or correct and in the right posit ion
+    function categorizeChars() {
+        let tempAnswer = answer.current.toUpperCase();
+        for (let i = 0; i < wordGuess.length; i++) {
+            const guessChar = wordGuess[i].toUpperCase();
+            let answerChar = "undefined";
+            if (tempAnswer.length > i) {
+                answerChar = tempAnswer[i].toUpperCase();
+            }
+            let charColour = "";
+
+            if (guessChar === answerChar) {
+                // replace guessed characters with * in the answer string to avoid marking all instances of that char in the guess as correct.
+                tempAnswer = tempAnswer.replace(guessChar, "*");
+                charColour = blue;
+            } else if (tempAnswer.includes(guessChar)) {
+                tempAnswer = tempAnswer.replace(guessChar, "*");
+                charColour = brown;
+            } else {
+                charColour = black;
+            }
+
+            // Push the result for each character to resultArr. 
+            // rowNumber corresponds to the guess number (eg guess 1 will be rowNumber 1, the second guess will be rowNumber 2 etc)
+            resultArr.push(
+                {
+                    char: guessChar,
+                    colour: charColour,
+                    rowNumber: rowNum.current,
+                }
+            );
+            console.log("answer is now: " + tempAnswer);
+        }
+        setKeyboardCharColour([...keyboardCharColour, ...resultArr])
+    }
+
+    // Handles when the user clicks the 'submit guess' button
+    function clickHandler() {
+        if (rowNum.current > 5) {
+            setAlertVisible(true);
+            alertText.current = "You've already had 5 guesses!!";
+            setTimeout(() => {setAlertVisible(false)}, 3000); 
+        }
+        else if (wordGuess === "") {
+            setAlertVisible(true);
+            alertText.current = "Please enter a word!";
+            setTimeout(() => {setAlertVisible(false)}, 3000); 
+        }
+        else if (wordGuess.length > 10) {
+            setAlertVisible(true);
+            alertText.current = "Word is too long. Max length is 10!";
+            setTimeout(() => {setAlertVisible(false)}, 3000); 
+        }
+        else if (!(answerPool.includes(wordGuess.toUpperCase()))) {
+            setAlertVisible(true);
+            alertText.current = "This language/framework is not in our (limited) dictionary";
+            setTimeout(() => {setAlertVisible(false)}, 3000); 
+        }
+        else {
+            categorizeChars();
+            rowNum.current += 1;
+            console.debug("RowNum is:" + rowNum.current);
+        
+            // make the newly guessed word into jsx elements and add those to the guessResult state variable 
+            const charBoxes = resultArr.map((charColour) => 
+                <input type="text" value={charColour.char} className="charDisplayBox" disabled={true} style={{backgroundColor: charColour.colour,  gridRow: charColour.rowNumber}}/>
+            )
+            let newResults: JSX.Element[] = [...guessResult, ...charBoxes];
+            console.debug("Charboxes are: " + charBoxes + ", newResults are: " + newResults);
+            setGuessResult(newResults);
+        }
+        setWordGuess("");
+    }
+
+    // Hook to handle the onscreen keyboard
     useEffect(() => {
+        const keyArr: Array<CharColour> = [];
+
+        // Defines which characters should be shown on keyboard
+        const alphabet = [
+            "Q","W","E","R","T","Y","U","I","O","P",
+            "A","S","D","F","G","H","J","K","L","del",
+            "Z","X","C","V","B","N","M", ".","+","clr"
+        ];
+
+        // Set (or clear) the input field value depending on key pressed
         function setInputField(char:string) {
             console.log("Setting input field to: " + char);
             if (char === "del") {
@@ -57,13 +144,8 @@ function WordGuesser() {
             }
         }
         
-        const keyArr: Array<CharColour> = [];
-        const alphabet = [
-            "Q","W","E","R","T","Y","U","I","O","P",
-            "A","S","D","F","G","H","J","K","L","del",
-            "Z","X","C","V","B","N","M", ".","+","clr"
-        ];
-
+        // Go through all the keys and set their current colour on the keyboard to
+        // the color set by categorizeChars
         for (let i = 0; i < alphabet.length; i++) {
             const result = keyboardCharColour.filter((elem) => elem.char === alphabet[i]);
             let colour = grey;
@@ -105,74 +187,6 @@ function WordGuesser() {
         
         setGuessResultKeyboard(keyboard);
     }, [wordGuess, keyboardCharColour])
-
-    function categorizeChars() {
-        let tempAnswer = answer.current.toUpperCase();
-        for (let i = 0; i < wordGuess.length; i++) {
-            const guessChar = wordGuess[i].toUpperCase();
-            let answerChar = "undefined";
-            if (tempAnswer.length > i) {
-                answerChar = tempAnswer[i].toUpperCase();
-            }
-            let charColour = "";
-
-            if (guessChar === answerChar) {
-                tempAnswer = tempAnswer.replace(guessChar, "*");
-                charColour = blue;
-            } else if (tempAnswer.includes(guessChar)) {
-                tempAnswer = tempAnswer.replace(guessChar, "*");
-                charColour = brown;
-            } else {
-                charColour = black;
-            }
-
-            resultArr.push(
-                {
-                    char: guessChar,
-                    colour: charColour,
-                    rowNumber: rowNum.current,
-                }
-            );
-            console.log("answer is now: " + tempAnswer);
-        }
-        setKeyboardCharColour([...keyboardCharColour, ...resultArr])
-    }
-
-    function clickHandler() {
-        if (rowNum.current > 5) {
-            setAlertVisible(true);
-            alertText.current = "You've already had 5 guesses!!";
-            setTimeout(() => {setAlertVisible(false)}, 3000); 
-        }
-        else if (wordGuess === "") {
-            setAlertVisible(true);
-            alertText.current = "Please enter a word!";
-            setTimeout(() => {setAlertVisible(false)}, 3000); 
-        }
-        else if (wordGuess.length > 10) {
-            setAlertVisible(true);
-            alertText.current = "Word is too long. Max length is 10!";
-            setTimeout(() => {setAlertVisible(false)}, 3000); 
-        }
-        else if (!(answerPool.includes(wordGuess.toUpperCase()))) {
-            setAlertVisible(true);
-            alertText.current = "This language/framework is not in our (limited) dictionary";
-            setTimeout(() => {setAlertVisible(false)}, 3000); 
-        }
-        else {
-            categorizeChars();
-            rowNum.current += 1;
-            console.debug("RowNum is:" + rowNum.current);
-        
-            const charBoxes = resultArr.map((charColour) => 
-                <input type="text" value={charColour.char} className="charDisplayBox" disabled={true} style={{backgroundColor: charColour.colour,  gridRow: charColour.rowNumber}}/>
-            )
-            let newResults: JSX.Element[] = [...guessResult, ...charBoxes];
-            console.debug("Charboxes are: " + charBoxes + ", newResults are: " + newResults);
-            setGuessResult(newResults);
-        }
-        setWordGuess("");
-    }
 
     return (
         <>

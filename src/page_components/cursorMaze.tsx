@@ -11,6 +11,7 @@ function CursorMaze() {
   const mazeRefreshInterval = 10000;
   const mazeUpdateSpeed = 20;
   
+  // progressively updates the maze when called. Speed of update is defined by mazeUpdateSpeed
   function updateMaze() {
     let tempMaze = mazeObjects;
     let index = 0;
@@ -24,7 +25,10 @@ function CursorMaze() {
     }, mazeUpdateSpeed);
     return () => clearInterval(interval);
   }
+
 /* eslint-disable */
+
+  // runs on page load to start calling the updateMaze function at set intervals (defined by mazeRefreshInterval)
   useEffect(() => {
     updateMaze();
     const refreshInterval = setInterval(() => {
@@ -32,8 +36,10 @@ function CursorMaze() {
     }, mazeRefreshInterval);
     return () => clearInterval(refreshInterval);
   }, []); 
+
 /* eslint-enable */
 
+  // returns random maze wall rotation (0, 90, 180 or 270)
   function randomNum(min = 0, max = 3) {
     const result = Math.random()*(max - min) + min
     return (Math.floor(result)*90)

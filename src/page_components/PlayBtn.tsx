@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom"
 import '../css/Components.css';
 
+// Play button component. Has 3 vectors overlayed because on hover it is animated so they fan out like a card stack
 function PlayBtn({navTarget} : {navTarget:string}) {
     const navigate = useNavigate();
     return(

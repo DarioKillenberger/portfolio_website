@@ -3,20 +3,24 @@ import { useEffect, useState } from 'react';
 import { insertStrike, moveStrike, slideTransition } from '../../utils/textTransitions';
 import parse from 'html-react-parser';
 import PlayBtn from '../../page_components/PlayBtn';
-// import SkipBtn from '../../page_components/SkipBtn';
 
 function StartPage() {
   const [professionText, setProfessionText] = useState(() => "Software Engineering Student");
   // it's possible that reading the updated professionText after setting it wasn't working cause I didn't use the spread operator (..)
   // This makes it create a new object rather than mutating the existing one, which makes sure useState realizes the value has changed.
 
+  // Calls the changeText method on page load
   useEffect(() => {
     changeText();
   }, [])
 
+  // Handles iterating through array of my experience, with transitions between text
   const changeText = async () => {
-    const professionArr = ["Software Engineering Student", "Cycling Enthusiast",
-    "Java Experience", "Javascript Experience", "React Experience", "Python Experience", "C++ Experience", "History Enthusiast", "SQL Experience", "Typescript Experience", "3d Printing", "Ardiuno Tinkering"];
+    const professionArr = [
+      "Software Engineering Student", "Cycling Enthusiast", "Java Experience",
+      "Javascript Experience", "React Experience", "Python Experience", "C++ Experience",
+      "History Enthusiast", "SQL Experience", "Typescript Experience", "3d Printing", "Ardiuno Tinkering"
+    ];
     setProfessionText(professionArr[0]);
     await new Promise(resolve => setTimeout(resolve, 2000));
 
@@ -43,14 +47,13 @@ function StartPage() {
   return (
     <>
       <div className="inner-container">
-          <h1 id="nameText">Dario Killenberger</h1>
-          <div id="professionText">{parse(professionText)}</div>
+        <h1 id="nameText">Dario Killenberger</h1>
+        <div id="professionText">{parse(professionText)}</div>
       </div>
-      <div className="topRightBox">
-        {/* <SkipBtn navTarget="/projects"/> */}
+        <div className="topRightBox">
       </div>
       <div className="bottomMiddleBox">
-      <PlayBtn navTarget="/wordGuess"/>
+        <PlayBtn navTarget="/wordGuess"/>
       </div>
     </>
   );
