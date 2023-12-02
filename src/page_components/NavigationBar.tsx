@@ -29,7 +29,7 @@ function NavigationBar({navLinks}: {navLinks: NavLinks[] }) {
                 break;
             }
         }
-    }, [location]);
+    }, [location, navLinks]);
 
     // Sets the animation delay to 0 and navigates to target when a page link in the navbar is clicked. 
     // We want the animation delay to be 0.6 on page load, but then instant if the user navigates to a different page after. 
