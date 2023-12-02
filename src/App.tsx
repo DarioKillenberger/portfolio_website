@@ -11,7 +11,15 @@ import ResumeV3 from './pages/ResumePageV3';
 import NavigationBar from './page_components/NavigationBar';
 // import { useState, useContext, createContext } from 'react';
 
-// const ProgressBarContext = createContext(0); //use useContext to pass progress value to navigation bar component, and also to update it from the other pages.
+// navLinks object. If navigation paths change, only need to update here
+// The text property defines what will be displayed on the navigation bar
+const navLinks = [
+  {text: "Home", path:"/home"},
+  {text: "Word Guesser", path:"/wordGuess"},
+  {text: "Projects", path:"/projects"},
+  {text: "Maze", path:"/maze"},
+  {text: "About Me", path:"/about-me"},
+]
 
 const router = createBrowserRouter([{
   path: "/", 
@@ -23,22 +31,27 @@ const router = createBrowserRouter([{
     // errorElement: <ErrorPage />,
   },
   {
-    path: "/home",
+    path: navLinks[0].path,
     element: <StartPage/>,
     // errorElement: <ErrorPage />,
   },
   {
-    path: "/wordGuess",
+    path: navLinks[1].path,
     element: <WordPage/>,
     // errorElement: <ErrorPage />,
   },
   {
-    path: "/projects",
+    path: navLinks[2].path,
     element: <MyProjects/>,
     // errorElement: <ErrorPage />,
   },
   {
-    path: "/resume",
+    path: navLinks[3].path,
+    element: <ResumeV3/>,
+    // errorElement: <ErrorPage />,
+  },
+  {
+    path: navLinks[4].path,
     element: <ResumeV3/>,
     // errorElement: <ErrorPage />,
   },
@@ -49,7 +62,7 @@ function NavbarWrapper(){
   return (
   <div>
     <div className="gridContainer">
-      <NavigationBar/>
+      <NavigationBar navLinks={navLinks}/>
       <Outlet/>
       </div>
   </div>
