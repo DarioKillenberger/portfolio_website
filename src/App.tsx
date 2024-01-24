@@ -5,9 +5,8 @@ import StartPage from './pages/StartPage/StartPage';
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import MyProjects from './pages/MyProjects';
 import WordPage from './pages/WordPage';
-// import ResumePage from './pages/ResumePage';
-// import ResumeV2 from './pages/ResumeV2';
 import ResumeV3 from './pages/ResumePageV3';
+import AboutMePage from './pages/AboutMePage';
 import NavigationBar from './page_components/NavigationBar';
 // import { useState, useContext, createContext } from 'react';
 
@@ -52,7 +51,7 @@ const router = createBrowserRouter([{
   },
   {
     path: navLinks[4].path,
-    element: <ResumeV3/>,
+    element: <AboutMePage/>,
     // errorElement: <ErrorPage />,
   },
   ]

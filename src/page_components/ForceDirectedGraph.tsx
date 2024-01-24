@@ -1,7 +1,9 @@
+import '../css/AboutMePage.css';
 import { Graph } from "react-d3-graph";
 import { Types } from "./types";
 import ForceGraph from "force-graph";
 import { ForceGraph2D, ForceGraph3D, ForceGraphVR, ForceGraphAR } from 'react-force-graph';
+
 
 function ForceDirectedGraph() {
     let myData = {
@@ -14,7 +16,8 @@ function ForceDirectedGraph() {
             { 
               "id": "id2",
               "name": "name2",
-              "val": 10 
+              "nodeLabel": "testing",
+              "val": 30 
             },
             { 
                 "id": "id3",

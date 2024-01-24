@@ -8,7 +8,7 @@
     margin-top: 20px;
     z-index: 20;
     overflow: hidden;
-    position: absolute;
+    position: fixed;
 }
 
 

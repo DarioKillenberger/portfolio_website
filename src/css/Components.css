@@ -143,3 +143,10 @@
         transform: rotate(-20deg) translate(10%, 1%);;
     }
   }
+
+.downArrow {
+  margin-top: 20px;
+  justify-self: center;
+  width: 35px;
+  height: 30px;
+}
