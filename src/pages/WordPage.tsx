@@ -1,9 +1,7 @@
 import WordGuesser from "../page_components/WordGuesser";
-// import { useNavigate } from "react-router-dom";
 import SkipBtn from "../page_components/SkipBtn";
 
 function WordPage() {
-    // const navigate = useNavigate()
     return(
         <>
         <WordGuesser/>
@@ -11,8 +9,7 @@ function WordPage() {
            <SkipBtn navTarget="/projects"/>
         </div>
         <div className="bottomRightBox">
-            {/* <button className="btn" onClick={changeText}>More info</button>
-            <button className="btn skipBtn" onClick={() => navigate("/projects")}>Skip this plz!</button> */}
+            {/* <button className="btn" onClick={changeText}>More info</button> */}
         </div>
         </>
     )
