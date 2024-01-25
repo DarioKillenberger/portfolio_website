@@ -21,8 +21,7 @@ function WordPage() {
            <SkipBtn navTarget="/projects"/>
         </div>
         <div className="bottomRightBox">
-            {/* <button className="btn" onClick={changeText}>More info</button>
-            <button className="btn skipBtn" onClick={() => navigate("/projects")}>Skip this plz!</button> */}
+            {/* <button className="btn" onClick={changeText}>More info</button> */}
         </div>
         </>
     )
