@@ -189,7 +189,7 @@ function WordGuesser() {
     }, [wordGuess, keyboardCharColour])
 
     return (
-        <>
+        <>        
         <h2 className="wordGuessTitle">Guess the programming language/javascript framework. You get 5 tries!</h2>
         <div className="wordGuessContainer">
             {guessResult}

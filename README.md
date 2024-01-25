@@ -14,8 +14,11 @@
 - CSS animations
 - Framer Motion??
 
+### Maze
+- Nothing much (This page needs lots of work 0.0)
+
 ### Resume
-- Framer Motion
+- Framer Motion (for the fade out/in when leaving/entering viewport)
 
 
 ## About this site and why I made it

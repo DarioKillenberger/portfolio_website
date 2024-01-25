@@ -1,0 +1,21 @@
+.guessMode {
+    justify-self: center;
+    align-self: flex-end;
+    grid-row: 1/2;
+    grid-column: 2/2;
+    margin-bottom: 100px;
+    color: rgb(125, 125, 125);
+}
+
+.radioBtn {
+    min-width: 100px;
+    min-height: 40px;
+    border-radius: 20px;
+    border: none;
+    margin: 2px;
+    background-color: rgb(92, 92, 92);
+}
+
+.active {
+    background-color: rgb(68, 121, 208);
+}

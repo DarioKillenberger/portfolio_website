@@ -1,8 +1,5 @@
 import '../css/AboutMePage.css';
-import { Graph } from "react-d3-graph";
-import { Types } from "./types";
-import ForceGraph from "force-graph";
-import { ForceGraph2D, ForceGraph3D, ForceGraphVR, ForceGraphAR } from 'react-force-graph';
+import { ForceGraph2D } from 'react-force-graph';
 
 
 function ForceDirectedGraph() {

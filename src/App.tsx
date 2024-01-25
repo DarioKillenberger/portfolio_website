@@ -8,9 +8,11 @@ import WordPage from './pages/WordPage';
 import ResumeV3 from './pages/ResumePageV3';
 import AboutMePage from './pages/AboutMePage';
 import NavigationBar from './page_components/NavigationBar';
+import ResumePage from './pages/ResumePage';
+import ResumeV2 from './pages/ResumeV2';
 // import { useState, useContext, createContext } from 'react';
 
-// navLinks object. If navigation paths change, only need to update here
+// navLinks object. If navigation paths change, only need to update here (will automatically be added on navBar)
 // The text property defines what will be displayed on the navigation bar
 const navLinks = [
   {text: "Home", path:"/home"},
@@ -54,6 +56,20 @@ const router = createBrowserRouter([{
     element: <AboutMePage/>,
     // errorElement: <ErrorPage />,
   },
+  
+  // ** temporary hidden paths ** //
+  {
+    path: "/old_resume1",
+    element: <ResumePage/>,
+    // errorElement: <ErrorPage />,
+  },
+  {
+    path: "/old_resume2",
+    element: <ResumeV2/>,
+    // errorElement: <ErrorPage />,
+  },
+  // ** ----------------------- ** //
+  
   ]
 }]);
 

@@ -12,6 +12,8 @@
     width: 130px;
     height: 130px;
     justify-self:center;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
   }
 
   .playBtn1, .playBtn2, .playBtn3 {
@@ -76,12 +78,14 @@
   }
 
   .skipBtn {
-    width: 80px;
-    height: 80px;
+    width: 90px;
+    height: 90px;
     transition: margin-left 1s;
     justify-self:end;
     align-self: flex-start;
     z-index: 10;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
   }
 
   .skipBtn1, .skipBtn2, .skipBtn3 {
@@ -147,6 +151,7 @@
 .downArrow {
   margin-top: 20px;
   justify-self: center;
-  width: 35px;
-  height: 30px;
+  width: 50px;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
 }
