@@ -12,10 +12,10 @@
 
 ### My Projects
 - CSS animations
-- Framer Motion??
 
 ### Maze
-- Nothing much (This page needs lots of work 0.0)
+- UseMousePosition hook by Josh W Comeau (https://www.joshwcomeau.com/snippets/react-hooks/use-mouse-position/) (for the cursor sprite)
+- Some CSS and React Wizardry (This page still needs lots of work 0.0)
 
 ### Resume
 - Framer Motion (for the fade out/in when leaving/entering viewport)

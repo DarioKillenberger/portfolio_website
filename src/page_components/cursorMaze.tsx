@@ -49,7 +49,6 @@ function CursorMaze() {
     <>
     <div className='cursorMazeBox'>
       {mazeObjects.map((mazeItem) => (<><hr className='mazeWall' style={{transform: `rotate(${mazeItem.rotation}deg)`}}/></>))}
-
     </div>
     
     </>
