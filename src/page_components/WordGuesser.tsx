@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useMemo, useCallback } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 import '../css/WordGuesser.css';
 
 //TODO: Make the error alert pop over not inline, create winning/losing screen which also reveals word
