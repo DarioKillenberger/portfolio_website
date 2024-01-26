@@ -80,7 +80,7 @@ function AboutMePage() {
             details:"Other Random Facts",
             contents: [
                 "Spoken Languages: English (native), German (native)",
-                "List of (some of the) tech I've worked with: Javascript, React, HTML, CSS, Python, Java, C++, Node, Express, Sequelize, SQL, Visual Basic, Object Oriented Programming, Git, GitHub, AWS, Visual Studio Code",
+                "List of (some of) the tech I've worked with: Javascript, React, HTML, CSS, Python, Java, C++, Node, Express, Sequelize, SQL, Visual Basic, Object Oriented Programming, Git, GitHub, Bitbucket, Jira, AWS, Visual Studio Code",
             ]
         },
     ];
