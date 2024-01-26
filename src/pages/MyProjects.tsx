@@ -4,7 +4,7 @@ import '../css/MyProjects.css';
 var img1 = require('../assets/dogInsurance_24hour.png');
 var img2 = require('../assets/c++_vendingMachine.png');
 var img3 = require('../assets/social_website.png');
-var img4 = require('../assets/minecraft_terrainGen.png');
+var img4 = require('../assets/minecraft_terrainGen.jpg');
 var img5 = require('../assets/movieRecommenderTuning.png');
 var img6 = require('../assets/arduinoLED.JPG');
 
