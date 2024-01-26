@@ -1,9 +1,9 @@
-import { useState, useEffect, useRef, useMemo } from 'react';
+import { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import '../css/WordGuesser.css';
 
 //TODO: Make the error alert pop over not inline, create winning/losing screen which also reveals word
 
-function WordGuesser() {
+function WordGuesser({modeSwitchState} : {modeSwitchState:Boolean}) {
     const [guessResult, setGuessResult] = useState<JSX.Element[]>([]);
     const [guessResultKeyboard, setGuessResultKeyboard] = useState<JSX.Element[]>([]);
     const [wordGuess, setWordGuess] = useState<string>("");
@@ -15,10 +15,10 @@ function WordGuesser() {
     const answer = useRef("");
     const answerPool = useMemo(() => {
         return [
-            "ADA", "ALGOL", "APL", "ASSEMBLY", "AUTOHOTKEY", "AUTOIT", "BASIC", "BATCH", "C", "COBOL", "C++", "C#", "CLOJURE",
+            "MATLAB", "ADA", "ALGOL", "APL", "ASSEMBLY", "AUTOHOTKEY", "AUTOIT", "BASIC", "BATCH", "C", "COBOL", "C++", "C#", "CLOJURE",
             "LISP", "CRYSTAL", "CSS", "DART", "DELPHI", "EIFFEL", "ELIXIR", "ELM", "ERLANG", "F#",
             "FACTOR", "FORTH", "FORTRAN", "GO", "GROOVY", "HASKELL", "HTML", "JAVA", "JAVASCRIPT", "JULIA", "KOTLIN", "LUA",
-            "MATLAB", "NIM","OCAML","PASCAL","PERL","PHP","POWERSHELL","PROLOG","PYTHON","R","RUBY","RUST",
+            "NIM","OCAML","PASCAL","PERL","PHP","POWERSHELL","PROLOG","PYTHON","R","RUBY","RUST",
             "SCALA","SCHEME","SCRATCH","SMALLTALK","SQL","SWIFT","ANGULAR","REACT","VUE.JS","EMBER.JS","MITHRIL","NODE.JS",
             "POLYMER","SVELTE","EXPRESS.JS","NEXT.JS","MOCHA", "TYPESCRIPT", "JQUERY", "GRAPHQL"
         ] // the words list is made up of programming languages, as well as major javascript frameworks. All words are between one and ten characters long.
@@ -37,15 +37,29 @@ function WordGuesser() {
         rowNumber: number;
     }
 
-    // Hook to randomly choose the target word to guess each time the page is loaded or the answerPool array changes
+    function resetDefaultValues() {
+        setKeyboardCharColour([]);
+        setWordGuess("");
+        setGuessResult([]);
+        rowNum.current = 1;
+    }
+
+    // Hook to handle choosing the target word to guess each time the page, the answerPool array changes, or the guessing mode is changed
+    // If the guessing mode is true (Personal), the correct answer is fixed. Otherwise, it is picked randomly
     useEffect(() => {
-        const randomNum = Math.floor(Math.random() * (answerPool.length));
-        answer.current = answerPool[randomNum];
-        console.log("The new correct answer is: " + answer.current);
-    }, [answerPool]);
+        resetDefaultValues();
+        if (modeSwitchState === true) {
+            answer.current = answerPool[0];
+            console.log("The new correct answer is: " + answer.current);
+        } else {
+            const randomNum = Math.floor(Math.random() * (answerPool.length));
+            answer.current = answerPool[randomNum];
+            console.log("The new correct answer is: " + answer.current);
+        }
+    }, [answerPool, modeSwitchState]);
 
     // Gets the answer provided by the user and assigns each letter a colour based on whether 
-    // it is incorrect, correct but in the wrong position, or correct and in the right posit ion
+    // it is incorrect, correct but in the wrong position, or correct and in the right position
     function categorizeChars() {
         let tempAnswer = answer.current.toUpperCase();
         for (let i = 0; i < wordGuess.length; i++) {
@@ -189,8 +203,14 @@ function WordGuesser() {
     }, [wordGuess, keyboardCharColour])
 
     return (
-        <>        
-        <h2 className="wordGuessTitle">Guess the programming language/javascript framework. You get 5 tries!</h2>
+        <>
+        {/* TODO: This probably isn't the best way of setting the title? Maybe better to pass the title into the HTML from an array storing the different versions */}
+        {
+        modeSwitchState === true ? 
+            <h2 className="wordGuessTitle">Guess the first programming language I learnt at uni. You get 5 tries!</h2>
+            : 
+            <h2 className="wordGuessTitle">Guess the programming language/javascript framework. You get 5 tries!</h2>
+        } 
         <div className="wordGuessContainer">
             {guessResult}
             <input type="text" id="wordGuess" value={wordGuess} onChange={e => setWordGuess(e.target.value)}></input>

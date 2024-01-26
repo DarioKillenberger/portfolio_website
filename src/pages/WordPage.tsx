@@ -1,22 +1,22 @@
 import '../css/WordPage.css';
 import WordGuesser from "../page_components/WordGuesser";
 import SkipBtn from "../page_components/SkipBtn";
+import { useState } from 'react';
 
 function WordPage() {
-    //TODO: Make the radio button work correctly, and make it switch the off the random word chooser and change the text to "Guess the first programming language I learnt in university"
-    // hardcode answer to be 'Matlab'
+    const [modeSwitch, setModeSwitch] = useState(true);
     
     return(
         <>
         <div className='guessMode'>
             <h1>Guessing Mode: </h1>
             <div className="btn-group" role="group" aria-label="Radio toggle to choose which guessing game question to play (personal or general)">
-                <button className="radioBtn active">Personal</button>
-                <button className="radioBtn">General</button>
+                <button className={modeSwitch === true ? "radioBtn active" : "radioBtn"} onClick={() => setModeSwitch(true)}>Personal</button>
+                <button className={modeSwitch === false ? "radioBtn active" : "radioBtn"} onClick={() => setModeSwitch(false)}>General</button>
             </div>
         </div>
         
-        <WordGuesser/>
+        <WordGuesser modeSwitchState={modeSwitch}/>
         <div className="topRightBox">
            <SkipBtn navTarget="/projects"/>
         </div>
