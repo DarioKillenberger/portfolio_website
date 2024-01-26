@@ -61,3 +61,13 @@
   size: 20px;
   padding: 15px 32px;
 }
+
+/* unvisited link */
+a:link {
+  color: rgb(75, 171, 249);
+}
+
+/* visited link */
+a:visited {
+  color: rgb(85, 116, 219);
+}

@@ -5,7 +5,7 @@ import StartPage from './pages/StartPage/StartPage';
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import MyProjects from './pages/MyProjects';
 import WordPage from './pages/WordPage';
-import ResumeV3 from './pages/ResumePageV3';
+import MazePage from './pages/MazePage';
 import AboutMePage from './pages/AboutMePage';
 import NavigationBar from './page_components/NavigationBar';
 import ResumePage from './pages/ResumePage';
@@ -48,7 +48,7 @@ const router = createBrowserRouter([{
   },
   {
     path: navLinks[3].path,
-    element: <ResumeV3/>,
+    element: <MazePage/>,
     // errorElement: <ErrorPage />,
   },
   {

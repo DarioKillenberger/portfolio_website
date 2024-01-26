@@ -1,0 +1,25 @@
+.gameBox {
+    align-self: center;
+    grid-column: 2/3;
+    grid-row: 1/4;
+}
+
+/* Start of cursorMaze Styles */
+.mazeWall {
+    width: 101%;
+    height: 0.9vh;
+    margin: 0px;
+    background: green;
+    border: none;
+}
+
+.cursorMazeBox {
+    width: 80vh;
+    height: 66vh;
+    display: grid;
+    margin-top: 2.75vh;
+    grid-template-columns: repeat(10, 8vh);
+    grid-template-rows: repeat(15, 4.4vh);
+    /* align-self: center;
+    justify-self: center; */
+}

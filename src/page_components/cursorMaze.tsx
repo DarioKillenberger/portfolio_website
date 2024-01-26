@@ -1,4 +1,4 @@
-import '../css/ResumePage.css';
+import '../css/MazePage.css';
 import { useState, useEffect } from 'react';
 
 function CursorMaze() {

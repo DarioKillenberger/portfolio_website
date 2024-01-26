@@ -1,18 +1,17 @@
-import '../css/ResumePage.css';
-// import { motion } from "framer-motion"
-// import { useState } from 'react';
+import '../css/MazePage.css';
 import CursorMaze from '../page_components/cursorMaze';
+import CursorSprite from '../page_components/CursorSprite';
 
-function ResumeV3() {
+function MazePage() {
 
         
     return (
         <>
+        <CursorSprite/>
         <div className='gameBox'><CursorMaze/></div>
         
         </>
     );
 }
       
-export default ResumeV3;
-      
+export default MazePage;

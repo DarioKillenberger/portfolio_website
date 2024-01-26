@@ -155,3 +155,11 @@
   background-color: rgba(0, 0, 0, 0);
   border: none;
 }
+
+.cursorSprite {
+  align-self: flex-start;
+  justify-self: start;
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+}

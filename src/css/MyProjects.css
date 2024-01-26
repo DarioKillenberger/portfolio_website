@@ -37,37 +37,31 @@
 .bannerImg {
     align-self: center;
     justify-self: center;
-    height: 95%;
-    width: 95%;
-    max-height: 60vh;
-    max-width: 50vw;
+    height: auto;
+    width: 97%;
+    aspect-ratio: 13.5 / 9;
+    margin-top: 15px;
     transition: ease-in-out 0.4s;
     border-radius: 20px;
     border-color: green;
     border-style: solid;}
 
 .bannerImg:nth-child(1) {
-    /* z-index: 6; */
     animation: 4s ease-out 0s 1 img1 forwards;
 }
 .bannerImg:nth-child(3) {
-    /* z-index: 5; */
     animation: 4s ease-out 0s 1 img2 forwards;
 }
 .bannerImg:nth-child(5) {
-    /* z-index: 4; */
     animation: 4s ease-out 0s 1 img3 forwards;
 }
 .bannerImg:nth-child(7) {
-    /* z-index: 3; */
     animation: 4s ease-out 0s 1 img4 forwards;
 }
 .bannerImg:nth-child(9) {
-    /* z-index: 2; */
     animation: 4s ease-out 0s 1 img5 forwards;
 }
 .bannerImg:nth-child(11) {
-    /* z-index: 1; */
     animation: 4s ease-out 0s 1 img6 forwards;
 }
 
@@ -80,7 +74,10 @@
 }
 
 .offsetActive {
-    margin-top: -40px;
+    /* transform: scale(104%) !important; */
+    align-self:baseline;
+    aspect-ratio: 13.5 / 9;
+    margin-top: 0px;
     z-index: 7 !important;
     grid-column: 1/3;
     grid-row: 1/3;
@@ -89,10 +86,10 @@
 @keyframes img1 {
     0% {
         z-index: 3;
-        transform: translate(104%, -33%) rotate(0deg);
+        transform: translate(102%, -33%) rotate(0deg);
     }
     40% {
-        transform: translate(104%, -33%) rotate(5deg);
+        transform: translate(102%, -33%) rotate(5deg);
     }
     100% {
         z-index: 3;
@@ -115,10 +112,10 @@
 @keyframes img3 {
     0% {
         z-index: 1;
-        transform: translate(-104%, -33%) rotate(0deg);
+        transform: translate(-102%, -33%) rotate(0deg);
     }
     50% {
-        transform: translate(-104%, -33%) rotate(-5deg);
+        transform: translate(-102%, -33%) rotate(-5deg);
     }
     100% {
         z-index: 1;
@@ -127,10 +124,10 @@
 }
 @keyframes img4 {
     0% {
-        transform: translate(104%, -136.3%) rotate(0deg);
+        transform: translate(102%, -136.3%) rotate(0deg);
     }
     55% {
-        transform: translate(104%, -136.3%) rotate(0deg);
+        transform: translate(102%, -136.3%) rotate(0deg);
     }
     100% {
         transform: translate(0%, 0%) rotate(0deg);
@@ -149,10 +146,10 @@
 }
 @keyframes img6 {
     0% {
-        transform: translate(-104%, -136.3%) rotate(0deg);
+        transform: translate(-102%, -136.3%) rotate(0deg);
     }
     65% {
-        transform: translate(-104%, -136.3%) rotate(0deg);
+        transform: translate(-102%, -136.3%) rotate(0deg);
     }
     100% {
         transform: translate(0%, 0%) rotate(0deg);
@@ -177,8 +174,9 @@
 }
 
 .projectInfo {
-    margin-top: 10px;
     /* position: absolute; */
+    text-align: left;
+    font-size: large;
     grid-column: 3/4;
     grid-row: 1/3;
     color: rgb(161, 189, 235);
