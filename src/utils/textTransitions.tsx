@@ -1,18 +1,18 @@
-// Surrounds characters up to the given index in a html Strikethrough element
-export const insertStrike = async (str: string, index: number) => {
+// Surrounds characters up to the given index in a html element (<u> [underline] by default)
+export const insertTextDecoration = async (str: string, index: number, symbol: string = "u") => {
     let newString = "";
-    newString = "<s>" + str.substring(index);
-    newString = newString.substring(0, index+4) + "</s>" + newString.substring(index+4); // note: adds +4 to index to adjust for the added strike tag
+    newString = `<${symbol}>` + str.substring(index);
+    newString = newString.substring(0, index+4) + `</${symbol}>` + newString.substring(index+4); // note: adds +4 to index to adjust for the added strike tag
     console.log(newString);
     return newString;
 }
 
-// For strings with an existing strike tag, moves the closing Strikethrough element one character to the right
-export const moveStrike = async (newText: string, index: number) =>  {
+// For strings with an existing html text decoration element, moves the closing element one character to the right
+export const moveTextDecoration = async (newText: string, index: number, symbol: string = "u") =>  {
     let newString = "";
     if (index <= newText.length ) {
         newString = newText.substring(0, index) + newText.substring(index+4);
-        newString = newString.substring(0, index+1) + "</s>" + newString.substring(index+1);
+        newString = newString.substring(0, index+1) + `</${symbol}>` + newString.substring(index+1);
     }
     console.log(newString);
     return newString;

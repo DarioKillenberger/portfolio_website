@@ -1,6 +1,6 @@
 import '../../css/StartPage.css';
 import { useEffect, useState } from 'react';
-import { insertStrike, moveStrike, slideTransition } from '../../utils/textTransitions';
+import { insertTextDecoration, moveTextDecoration, slideTransition } from '../../utils/textTransitions';
 import parse from 'html-react-parser';
 import PlayBtn from '../../page_components/PlayBtn';
 
@@ -28,13 +28,13 @@ function StartPage() {
       const textValue = professionArr[i];
 
       if (i%3 === 0 || i === 0) {
-        let newText = await insertStrike(textValue, 0);
+        let newText = await insertTextDecoration(textValue, 0);
         setProfessionText(newText);
 
         const length = newText.length-5;
         for (let i = 4; i <= length; i++) {
             await new Promise(resolve => setTimeout(resolve, 50));
-            newText = await moveStrike(newText, i);
+            newText = await moveTextDecoration(newText, i);
             setProfessionText(newText);
         }
       } else {
@@ -43,6 +43,9 @@ function StartPage() {
       await new Promise(resolve => setTimeout(resolve, 2000));
     }
   }
+
+  //TODO: Write a cleanup hook to ensure the text transitions stop happening in the background even when on other pages.
+  // Basically, changeText will currently continue to run until loop end, even if we are not on the startpage anymore.
   
   return (
     <>
