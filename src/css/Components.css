@@ -88,6 +88,7 @@
 }
 
 .skipBtn {
+    position: fixed;
     width: 90px;
     height: 90px;
     transition: margin-left 1s;
@@ -98,9 +99,7 @@
     border: none;
 }
 
-.skipBtn1,
-.skipBtn2,
-.skipBtn3 {
+.skipBtn1, .skipBtn2, .skipBtn3 {
     stroke-width: 0px;
 }
 
