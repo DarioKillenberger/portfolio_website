@@ -10,21 +10,21 @@ function CursorSprite() {
 
     // sets the left and top margin offsets so that the mousesprite is centered on the mouse cursor
     function calcMousePosition() {
-        let adjustedCoords = {x: mousePosition.x, y: mousePosition.y};
+        let adjustedCoords = { x: mousePosition.x, y: mousePosition.y };
 
         if (width !== null && width !== 0 && height !== null && height !== 0) {
-            adjustedCoords = {x: mousePosition.x-(width/2), y: mousePosition.y-(height/2)}
+            adjustedCoords = { x: mousePosition.x - (width / 2), y: mousePosition.y - (height / 2) }
         }
-        return adjustedCoords; 
+        return adjustedCoords;
     }
 
     // console.log(mousePosition);
-    return(
+    return (
         <>
-        {/* Rendering sprite in mouse cursor position with dynamic size. Positioning is done by setting x and y margin from the top left corner of screen */}
-        <div className='cursorSprite' ref={ref} style={{marginLeft: calcMousePosition().x, marginTop: calcMousePosition().y, width: "2vh", height: "2vh"}}>
+            {/* Rendering sprite in mouse cursor position with dynamic size. Positioning is done by setting x and y margin from the top left corner of screen */}
+            <div className='cursorSprite' ref={ref} style={{ marginLeft: calcMousePosition().x, marginTop: calcMousePosition().y, width: "2vh", height: "2vh" }}>
 
-        </div>
+            </div>
         </>
     );
 };
