@@ -31,7 +31,7 @@
     grid-column: 2 / 2;
     grid-row: 2 / 2;
     grid-template-columns: repeat(3, 25vw);
-    grid-template-rows: repeat(3, 17vw);
+    grid-auto-rows: 17vw;
 }
 
 .bannerImg {
@@ -46,23 +46,32 @@
     border-color: green;
     border-style: solid;}
 
-.bannerImg:nth-child(1) {
-    animation: 4s ease-out 0s 1 img1 forwards;
+.projectCard:nth-child(1) {
+    animation: 2s ease-out 0s 1 img1 forwards;
 }
-.bannerImg:nth-child(3) {
-    animation: 4s ease-out 0s 1 img2 forwards;
+.projectCard:nth-child(2) {
+    animation: 2s ease-out 0s 1 img2 forwards;
 }
-.bannerImg:nth-child(5) {
-    animation: 4s ease-out 0s 1 img3 forwards;
+.projectCard:nth-child(3) {
+    animation: 2s ease-out 0s 1 img3 forwards;
 }
-.bannerImg:nth-child(7) {
-    animation: 4s ease-out 0s 1 img4 forwards;
+.projectCard:nth-child(4) {
+    animation: 2s ease-out 0s 1 img4 forwards;
 }
-.bannerImg:nth-child(9) {
-    animation: 4s ease-out 0s 1 img5 forwards;
+.projectCard:nth-child(5) {
+    animation: 2s ease-out 0s 1 img5 forwards;
 }
-.bannerImg:nth-child(11) {
-    animation: 4s ease-out 0s 1 img6 forwards;
+.projectCard:nth-child(6) {
+    animation: 2s ease-out 0s 1 img6 forwards;
+}
+.projectCard:nth-child(7) {
+    animation: 2s ease-out 0s 1 img7 forwards;
+}
+.projectCard:nth-child(8) {
+    animation: 2s ease-out 0s 1 img8 forwards;
+}
+.projectCard:nth-child(9) {
+    animation: 2s ease-out 0s 1 img9 forwards;
 }
 
 /* .bannerImg:hover {
@@ -155,6 +164,39 @@
         transform: translate(0%, 0%) rotate(0deg);
     }
 }
+@keyframes img7 {
+    0% {
+        transform: translate(102%, -239.6%) rotate(0deg);
+    }
+    70% {
+        transform: translate(102%, -239.6%) rotate(0deg);
+    }
+    100% {
+        transform: translate(0%, 0%) rotate(0deg);
+    }
+}
+@keyframes img8 {
+    0% {
+        transform: translate(0%, -239.6%) rotate(0deg);
+    }
+    75% {
+        transform: translate(0%, -239.6%) rotate(0deg);
+    }
+    100% {
+        transform: translate(0%, 0%) rotate(0deg);
+    }
+}
+@keyframes img9 {
+    0% {
+        transform: translate(-102%, -239.6%) rotate(0deg);
+    }
+    75% {
+        transform: translate(-102%, -239.6%) rotate(0deg);
+    }
+    100% {
+        transform: translate(0%, 0%) rotate(0deg);
+    }
+}
 
 @keyframes zoomIn {
     0% {
@@ -174,7 +216,7 @@
 }
 
 .projectInfo {
-    /* position: absolute; */
+    position: relative;
     text-align: left;
     font-size: large;
     grid-column: 3/4;
@@ -186,6 +228,18 @@
     overflow-x: hidden;
 }
 
+.projectName {
+    position: absolute;
+    bottom: 0%;
+    left: 1%;
+    width: 35%;
+    height: 10%;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 5px 5px 5px 20px;
+    backdrop-filter: blur(3px);
+}
+
 .hidden {
     display: none;
+    position: absolute
 }
