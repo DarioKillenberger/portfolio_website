@@ -11,14 +11,15 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
 var img1 = require('../assets/creative_therapies_website.png');
-var img2 = require('../assets/sharemaps.webp');
+var img2 = require('../assets/auto_image_tagger.png');
 var img3 = require('../assets/3d_prints.jpg');
-var img4 = require('../assets/c++_vendingMachine.png');
-var img5 = require('../assets/social_website.webp');
-var img6 = require('../assets/minecraft_terrainGen.jpg');
-var img7 = require('../assets/movieRecommenderTuning.png');
-var img8 = require('../assets/arduinoLED.JPG');
-var img9 = require('../assets/dogInsurance_24hour.png');
+var img4 = require('../assets/sharemaps.webp');
+var img5 = require('../assets/c++_vendingMachine.png');
+var img6 = require('../assets/social_website.webp');
+var img7 = require('../assets/minecraft_terrainGen.jpg');
+var img8 = require('../assets/movieRecommenderTuning.png');
+var img9 = require('../assets/arduinoLED.JPG');
+var img10 = require('../assets/dogInsurance_24hour.png');
 
 var sl_img1 = require('../assets/slide_images/chess_board.jpg');
 var sl_img2 = require('../assets/slide_images/3d_chessboard.jpg');
@@ -33,8 +34,10 @@ var sl_img10 = require('../assets/slide_images/racing_wheel.jpg');
 var sl_img11 = require('../assets/slide_images/pc_open_case.jpg');
 var sl_img12 = require('../assets/slide_images/cog_print.jpg');
 
-let imgArr = [img1, img2, img3, img4, img5, img6, img7, img8, img9];
-let projectSlides = [[],[],
+var sl_img13 = require('../assets/slide_images/creative_therapies_site/creative_therapies_figma.webp');
+
+let imgArr = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10];
+let projectSlides = [[img1, sl_img13],[],
     [
     sl_img1,
     sl_img2,
@@ -49,7 +52,7 @@ let projectSlides = [[],[],
     sl_img11,
     sl_img12
     ],
-    [],[],[],[],[],[]];
+    [],[],[],[],[],[],[]];
 
 function MyProjects() {
     interface ProjectInfo {
@@ -75,6 +78,29 @@ function MyProjects() {
             technologies: "SvelteKit, Javascript, HTML, CSS",
         },
         {
+            title: "Auto Image Tagger",
+            year: "02/2024 - Current",
+            showcaseLink: "",
+            repoLink: "https://github.com/DarioKillenberger/auto_image_tagger",
+            description: [
+                "A desktop application written using python and tkinter to detect elements in local images using the AWS Rekognition api, and then write these elements into the image metadata as tags.",
+                "Tags are written to metadata using exiftool. Currently they are written into the IPTC 'Keywords', XMP 'Subject' and XMP-digiKam 'TagsList' fields for maximum compatibility with image management software (verified working with digikam)",
+                "The backend code is based on the tag-my-picture project by Andreas Streim, but has been heavily modified and extended",
+            ],
+            technologies: "Python, Tkinter, AWS Rekognition",
+        },
+        {
+            title: "3d Print Projects",
+            year: "",
+            showcaseLink: "",
+            repoLink: "",
+            description: [
+                "This is a collection of the 3d projects I have created in the past.",
+                "They include an arduino based racing wheel, a microphone stand, a microscope stand, a chessboard, and a few other projects.",
+            ],
+            technologies: "Fusion 360, 3d Printing",
+        },
+        {
             title: "Sharemaps WIP",
             year: "2024 - Current",
             showcaseLink: "https://sharemaps.net/",
@@ -84,17 +110,6 @@ function MyProjects() {
                 "It is still very early stage, so more details and features will come in the future.",
             ],
             technologies: "SvelteKit, TailwindCSS, DaisyUI, Javascript, HTML, CSS",
-        },
-        {
-            title: "3d Print Projects (Hobby project)",
-            year: "",
-            showcaseLink: "",
-            repoLink: "",
-            description: [
-                "This is a collection of the 3d projects I have created in the past.",
-                "They include an arduino based racing wheel, a microphone stand, a microscope stand, a chessboard, and a few other projects.",
-            ],
-            technologies: "Fusion 360, 3d Printing",
         },
         {
             title: "Vending machine system using C++",
@@ -143,7 +158,7 @@ function MyProjects() {
             technologies: "Python, Numpy",
         },
         {
-            title: "Arduino Motion Sensor Room Lights (Hobby project)",
+            title: "Arduino Motion Sensor Room Lights",
             year: "",
             showcaseLink: "",
             repoLink: "",
@@ -175,19 +190,18 @@ function MyProjects() {
         }
         setTimeout(() => {
             scrollContentRef.current[elemIndex-1].scrollIntoView({ block: 'center' });
-        }, 0.3);   
+        }, 0.3);
     }
 
     function SwiperComponent(elemIndex: number) {
-        
         
         return (
             <Swiper
                 spaceBetween={30}
                 centeredSlides={true}
                 autoplay={{
-                delay: 2500,
-                disableOnInteraction: false,
+                delay: 3000,
+                disableOnInteraction: true,
                 }}
                 pagination={{
                 clickable: true,
@@ -205,7 +219,6 @@ function MyProjects() {
 
             </Swiper>
         )
-        
     }
 
     const scrollContentRef = useRef<HTMLDivElement[]>([]);
