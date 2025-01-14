@@ -12,8 +12,8 @@ import 'swiper/css/navigation';
 
 var img1 = require('../assets/creative_therapies_website.png');
 var img2 = require('../assets/auto_image_tagger.png');
-var img3 = require('../assets/3d_prints.jpg');
-var img4 = require('../assets/sharemaps.webp');
+var img3 = require('../assets/sharemaps.webp');
+var img4 = require('../assets/slide_images/desk_organizer.jpg');
 var img5 = require('../assets/c++_vendingMachine.png');
 var img6 = require('../assets/social_website.webp');
 var img7 = require('../assets/minecraft_terrainGen.jpg');
@@ -21,10 +21,11 @@ var img8 = require('../assets/movieRecommenderTuning.png');
 var img9 = require('../assets/arduinoLED.JPG');
 var img10 = require('../assets/dogInsurance_24hour.png');
 
-var sl_img1 = require('../assets/slide_images/chess_board.jpg');
-var sl_img2 = require('../assets/slide_images/3d_chessboard.jpg');
-var sl_img3 = require('../assets/slide_images/desk_organizer.jpg');
-var sl_img4 = require('../assets/slide_images/desk_organizer_top.jpg');
+
+var sl_img1 = require('../assets/slide_images/desk_organizer.jpg');
+var sl_img2 = require('../assets/slide_images/desk_organizer_top.jpg');
+var sl_img3 = require('../assets/slide_images/chess_board.jpg');
+var sl_img4 = require('../assets/slide_images/3d_chessboard.jpg');
 var sl_img5 = require('../assets/slide_images/microscope.jpg');
 var sl_img6 = require('../assets/slide_images/Microscope_3d.jpg');
 var sl_img7 = require('../assets/slide_images/mic_stand.jpg');
@@ -37,7 +38,7 @@ var sl_img12 = require('../assets/slide_images/cog_print.jpg');
 var sl_img13 = require('../assets/slide_images/creative_therapies_site/creative_therapies_figma.webp');
 
 let imgArr = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10];
-let projectSlides = [[img1, sl_img13],[],
+let projectSlides = [[img1, sl_img13],[],[],
     [
     sl_img1,
     sl_img2,
@@ -52,7 +53,7 @@ let projectSlides = [[img1, sl_img13],[],
     sl_img11,
     sl_img12
     ],
-    [],[],[],[],[],[],[]];
+    [],[],[],[],[],[]];
 
 function MyProjects() {
     interface ProjectInfo {
@@ -90,17 +91,6 @@ function MyProjects() {
             technologies: "Python, Tkinter, AWS Rekognition",
         },
         {
-            title: "3d Print Projects",
-            year: "",
-            showcaseLink: "",
-            repoLink: "",
-            description: [
-                "This is a collection of the 3d projects I have created in the past.",
-                "They include an arduino based racing wheel, a microphone stand, a microscope stand, a chessboard, and a few other projects.",
-            ],
-            technologies: "Fusion 360, 3d Printing",
-        },
-        {
             title: "Sharemaps WIP",
             year: "2024 - Current",
             showcaseLink: "https://sharemaps.net/",
@@ -110,6 +100,17 @@ function MyProjects() {
                 "It is still very early stage, so more details and features will come in the future.",
             ],
             technologies: "SvelteKit, TailwindCSS, DaisyUI, Javascript, HTML, CSS",
+        },
+        {
+            title: "3D Print Projects",
+            year: "",
+            showcaseLink: "",
+            repoLink: "",
+            description: [
+                "This is a collection of the 3d projects I have created in the past.",
+                "They include an arduino based racing wheel, a microphone stand, a microscope stand, a chessboard, and a few other projects.",
+            ],
+            technologies: "Fusion 360, 3d Printing",
         },
         {
             title: "Vending machine system using C++",
