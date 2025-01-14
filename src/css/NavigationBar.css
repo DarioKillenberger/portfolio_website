@@ -5,10 +5,12 @@
     /* grid-template-columns: repeat(5, 15vw); */
     grid-template-rows: 20px fit-content(100%) 20px;
     justify-self: center;
-    margin-top: 20px;
+    padding-top: 20px;
     z-index: 20;
     overflow: hidden;
     position: fixed;
+    background-color: rgba(32, 32, 32, 0.85);
+    border-radius: 10px;
 }
 
 
@@ -53,8 +55,8 @@
 
 .navLineMask{ 
     position: absolute;
-    top: 45%;
-    height: 11%;
+    top: 61.4%;
+    height: 8%;
     width: 100%;
     /* background-color: #a22929; */
     background-color: #9694c0;
@@ -64,8 +66,8 @@
 
 .navLineProgress {
     position: absolute;
-    top: 45%;
-    height: 11%;
+    top: 61.4%;
+    height: 8%;
     width: 100%;
     /* background-color: #a22929; */
     background-color: #124b2c;

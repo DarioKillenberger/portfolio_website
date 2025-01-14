@@ -1,17 +1,55 @@
 import { useState, useRef } from 'react';
 import '../css/MyProjects.css';
+// import Swiper core and required modules
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 
 var img1 = require('../assets/creative_therapies_website.png');
-var img2 = require('../assets/sharemaps.png');
+var img2 = require('../assets/sharemaps.webp');
 var img3 = require('../assets/3d_prints.jpg');
 var img4 = require('../assets/c++_vendingMachine.png');
-var img5 = require('../assets/social_website.png');
+var img5 = require('../assets/social_website.webp');
 var img6 = require('../assets/minecraft_terrainGen.jpg');
 var img7 = require('../assets/movieRecommenderTuning.png');
 var img8 = require('../assets/arduinoLED.JPG');
 var img9 = require('../assets/dogInsurance_24hour.png');
 
+var sl_img1 = require('../assets/slide_images/chess_board.jpg');
+var sl_img2 = require('../assets/slide_images/3d_chessboard.jpg');
+var sl_img3 = require('../assets/slide_images/desk_organizer.jpg');
+var sl_img4 = require('../assets/slide_images/desk_organizer_top.jpg');
+var sl_img5 = require('../assets/slide_images/microscope.jpg');
+var sl_img6 = require('../assets/slide_images/Microscope_3d.jpg');
+var sl_img7 = require('../assets/slide_images/mic_stand.jpg');
+var sl_img8 = require('../assets/slide_images/steering_wheel_partial.jpg');
+var sl_img9 = require('../assets/slide_images/steering_wheel_print.jpg');
+var sl_img10 = require('../assets/slide_images/racing_wheel.jpg');
+var sl_img11 = require('../assets/slide_images/pc_open_case.jpg');
+var sl_img12 = require('../assets/slide_images/cog_print.jpg');
+
 let imgArr = [img1, img2, img3, img4, img5, img6, img7, img8, img9];
+let projectSlides = [[],[],
+    [
+    sl_img1,
+    sl_img2,
+    sl_img3,
+    sl_img4,
+    sl_img5,
+    sl_img6,
+    sl_img7,
+    sl_img8,
+    sl_img9,
+    sl_img10,
+    sl_img11,
+    sl_img12
+    ],
+    [],[],[],[],[],[]];
 
 function MyProjects() {
     interface ProjectInfo {
@@ -140,6 +178,36 @@ function MyProjects() {
         }, 0.3);   
     }
 
+    function SwiperComponent(elemIndex: number) {
+        
+        
+        return (
+            <Swiper
+                spaceBetween={30}
+                centeredSlides={true}
+                autoplay={{
+                delay: 2500,
+                disableOnInteraction: false,
+                }}
+                pagination={{
+                clickable: true,
+                }}
+                navigation={true}
+                modules={[Autoplay, Pagination, Navigation]}
+                className="mySwiper"
+                onClick={activeImg === elemIndex + 1 ? () => mouseHover(elemIndex + 1, true) : () => mouseHover(elemIndex + 1, false)}
+            >
+                {projectSlides[elemIndex].map((img) => (
+                    <>
+                    <SwiperSlide><img className='swiperImg' src={img} alt="Portfolio Project" draggable="false" /></SwiperSlide>
+                    </>
+                ))}
+
+            </Swiper>
+        )
+        
+    }
+
     const scrollContentRef = useRef<HTMLDivElement[]>([]);
 
     return (
@@ -149,8 +217,9 @@ function MyProjects() {
                 {imgArr.map((img, index) => (
                     <>
                         <div className={activeImg === index + 1 ? "projectCard offsetActive" : "projectCard offset"} ref={(element: HTMLDivElement) => scrollContentRef.current[index] = element}>
-                            <img className={activeImg === index + 1 ? "bannerImg" : "bannerImg"} src={img} alt="Portfolio Project" draggable="false" onClick={activeImg === index + 1 ? () => mouseHover(index + 1, true) : () => mouseHover(index + 1, false)} />
-
+                            {activeImg === index + 1 && projectSlides[index].length > 0 ? SwiperComponent(index) : 
+                                <img className="bannerImg" src={img} alt="Portfolio Project" draggable="false" onClick={activeImg === index + 1 ? () => mouseHover(index + 1, true) : () => mouseHover(index + 1, false)} />
+                            }
                             <div className={activeImg === index + 1 ? "projectName hidden" : "projectName"}>{projectDescription[index].title}
                             </div>
                         </div>
@@ -163,6 +232,9 @@ function MyProjects() {
                             {projectDescription[index].technologies !== "" ? <p>Technologies Used: {projectDescription[index].technologies}</p> : null}
                             {projectDescription[index].showcaseLink !== "" ? <p>Showcase Link: <a href={projectDescription[index].showcaseLink} target="_blank" rel="noopener noreferrer">{projectDescription[index].showcaseLink}</a></p> : null}
                             {projectDescription[index].repoLink !== "" ? <p>Repo Link: <a href={projectDescription[index].repoLink} target="_blank" rel="noopener noreferrer">{projectDescription[index].repoLink}</a></p> : null}
+                            
+                            
+                        
                         </div>
                     </>
                 ))

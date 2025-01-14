@@ -46,6 +46,18 @@
     border-color: green;
     border-style: solid;
     overflow: hidden;
+    object-fit: cover;
+}
+
+.mySwiper {
+    height: 100%;
+    overflow: hidden;
+}
+
+.swiperImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .bannerImg {
