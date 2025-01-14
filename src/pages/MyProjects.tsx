@@ -139,20 +139,22 @@ function MyProjects() {
       <div className='pictureBox'>
         {imgArr.map((img, index) => (
           <>
-            <img className={activeImg === index + 1 ? "bannerImg offsetActive" : "bannerImg offset"} src={img} alt="Portfolio Project" draggable="false" onClick={activeImg === index + 1 ? () => mouseHover(0) : () => mouseHover(index + 1)} />
-            
-
-
-            <div className={activeImg === index + 1 ? "projectInfo" : "projectInfo hidden"}>
-              <h2>{projectDescription[index].title}</h2>
-              <p>Date: {projectDescription[index].year}</p>
-              {projectDescription[index].description.map((elem) => (
-                <p>{elem}</p>
-              ))}
-              {projectDescription[index].technologies !== "" ? <p>Technologies Used: {projectDescription[index].technologies}</p> : null}
-              {projectDescription[index].showcaseLink !== "" ? <p>Showcase Link: <a href={projectDescription[index].showcaseLink} target="_blank" rel="noopener noreferrer">{projectDescription[index].showcaseLink}</a></p> : null}
-              {projectDescription[index].repoLink !== "" ? <p>Repo Link: <a href={projectDescription[index].repoLink} target="_blank" rel="noopener noreferrer">{projectDescription[index].repoLink}</a></p> : null}
+            <div className={activeImg === index + 1 ? "projectCard offsetActive" : "projectCard offset"}>
+                <img className={activeImg === index + 1 ? "bannerImg" : "bannerImg"} src={img} alt="Portfolio Project" draggable="false" onClick={activeImg === index + 1 ? () => mouseHover(0) : () => mouseHover(index + 1)} />
+                
+                <div className={activeImg === index + 1 ? "projectName hidden" : "projectName"}>{projectDescription[index].title}
+                </div>
             </div>
+            <div className={activeImg === index + 1 ? "projectInfo" : "projectInfo hidden"}>
+                    <h2>{projectDescription[index].title}</h2>
+                    <p>Date: {projectDescription[index].year}</p>
+                    {projectDescription[index].description.map((elem) => (
+                        <p>{elem}</p>
+                    ))}
+                    {projectDescription[index].technologies !== "" ? <p>Technologies Used: {projectDescription[index].technologies}</p> : null}
+                    {projectDescription[index].showcaseLink !== "" ? <p>Showcase Link: <a href={projectDescription[index].showcaseLink} target="_blank" rel="noopener noreferrer">{projectDescription[index].showcaseLink}</a></p> : null}
+                    {projectDescription[index].repoLink !== "" ? <p>Repo Link: <a href={projectDescription[index].repoLink} target="_blank" rel="noopener noreferrer">{projectDescription[index].repoLink}</a></p> : null}
+                </div>
           </>
         ))
         }
