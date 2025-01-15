@@ -372,6 +372,10 @@
     transform: scale(100%);
 }
 
+.offset:hover {
+    border-color: rgb(107, 107, 212);
+}
+
 .offsetActive {
     /* transform: scale(104%) !important; */
     align-self:baseline;
@@ -384,6 +388,7 @@
     margin: 8px; */
     grid-column: 1/3;
     grid-row: 1/3;
+    border-color: rgb(107, 107, 212);
 }
 
 @keyframes fadeInAnimation {
