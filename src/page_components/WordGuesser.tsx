@@ -204,24 +204,32 @@ function WordGuesser({modeSwitchState} : {modeSwitchState:Boolean}) {
 
     return (
         <>
-        {/* TODO: This probably isn't the best way of setting the title? Maybe better to pass the title into the HTML from an array storing the different versions */}
-        {
-        modeSwitchState === true ? 
-            <h2 className="wordGuessTitle">Guess the first programming language I learnt at uni. You get 5 tries!</h2>
-            : 
-            <h2 className="wordGuessTitle">Guess the programming language/javascript framework. You get 5 tries!</h2>
-        } 
-        <div className="wordGuessContainer">
-            {guessResult}
-            <input type="text" id="wordGuess" value={wordGuess} onChange={e => setWordGuess(e.target.value)}></input>
-            <button className="btn wordGuessBtn" onClick={clickHandler}>Submit Guess</button>
-            {alertVisible === true && ( 
-                <div className="wordGuessAlert">{alertText.current}</div>
-            )}
-        </div>
-        <div className="wordGuessKeyboard">
-            {guessResultKeyboard}
-        </div>
+        
+            {/* TODO: This probably isn't the best way of setting the title? Maybe better to pass the title into the HTML from an array storing the different versions */}
+            {
+            modeSwitchState === true ? 
+                <h2 className="wordGuessTitle">Guess the first programming language I learnt at uni. You get 5 tries!</h2>
+                : 
+                <h2 className="wordGuessTitle">Guess the programming language/javascript framework. You get 5 tries!</h2>
+            } 
+            
+            <div className="wordGuessContainer">
+                <div className='legend'>
+                    <div className="legendColour" style={{backgroundColor: brown}}></div>
+                    <p className="legendText">Correct character in incorrect position</p>
+                    <div className="legendColour" style={{backgroundColor: blue}}></div>
+                    <p className="legendText">Correct character in correct position</p>
+                </div>
+                {guessResult}
+                <input type="text" id="wordGuess" value={wordGuess} onChange={e => setWordGuess(e.target.value)}></input>
+                <button className="btn wordGuessBtn" onClick={clickHandler}>Submit Guess</button>
+                {alertVisible === true && ( 
+                    <div className="wordGuessAlert">{alertText.current}</div>
+                )}
+            </div>
+            <div className="wordGuessKeyboard">
+                {guessResultKeyboard}
+            </div>
         </>
     );
 }

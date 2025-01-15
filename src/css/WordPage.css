@@ -1,10 +1,11 @@
 .guessMode {
     justify-self: center;
     align-self: flex-end;
-    grid-row: 1/2;
-    grid-column: 2/2;
-    margin-bottom: 100px;
+    grid-row: 1/1;
+    grid-column: 1/1;
     color: rgb(125, 125, 125);
+    margin-top: 150px;
+    margin-bottom: 40px;
 }
 
 .radioBtn {
@@ -18,4 +19,16 @@
 
 .active {
     background-color: rgb(68, 121, 208);
+}
+
+/* mobile specific css */
+@media screen and (max-width: 1200px) {
+    .guessMode {
+        font-size: small;
+    }
+
+    .radioBtn {
+        min-width: calc(80px + 2vw);
+        min-height: calc(30px + 1vw);
+    }
 }
