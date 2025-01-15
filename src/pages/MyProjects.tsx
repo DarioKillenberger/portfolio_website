@@ -201,20 +201,20 @@ function MyProjects() {
                 spaceBetween={30}
                 centeredSlides={true}
                 autoplay={{
-                delay: 3000,
-                disableOnInteraction: true,
+                    delay: 3000,
+                    disableOnInteraction: true,
                 }}
                 pagination={{
                 clickable: true,
                 }}
                 navigation={true}
                 modules={[Autoplay, Pagination, Navigation]}
+                edgeSwipeDetection={false}
                 className="mySwiper"
-                onClick={activeImg === elemIndex + 1 ? () => mouseHover(elemIndex + 1, true) : () => mouseHover(elemIndex + 1, false)}
             >
-                {projectSlides[elemIndex].map((img) => (
+                {projectSlides[elemIndex].map((img, index) => (
                     <>
-                    <SwiperSlide><img className='swiperImg' src={img} alt="Portfolio Project" draggable="false" /></SwiperSlide>
+                    <SwiperSlide key={index}><img className='swiperImg' src={img} alt="Portfolio Project" draggable="false" /></SwiperSlide>
                     </>
                 ))}
 
@@ -230,9 +230,9 @@ function MyProjects() {
             <div className='pictureBox'>
                 {imgArr.map((img, index) => (
                     <>
-                        <div className={activeImg === index + 1 ? "projectCard offsetActive" : "projectCard offset"} ref={(element: HTMLDivElement) => scrollContentRef.current[index] = element}>
+                        <div className={activeImg === index + 1 ? "projectCard offsetActive" : "projectCard offset"} ref={(element: HTMLDivElement) => scrollContentRef.current[index] = element} onClick={activeImg === index + 1 ? () => mouseHover(index + 1, true) : () => mouseHover(index + 1, false)}>
                             {activeImg === index + 1 && projectSlides[index].length > 0 ? SwiperComponent(index) : 
-                                <img className="bannerImg" src={img} alt="Portfolio Project" draggable="false" onClick={activeImg === index + 1 ? () => mouseHover(index + 1, true) : () => mouseHover(index + 1, false)} />
+                                <img className="bannerImg" src={img} alt="Portfolio Project" draggable="false"/>
                             }
                             <div className={activeImg === index + 1 ? "projectName hidden" : "projectName"}>{projectDescription[index].title}
                             </div>
