@@ -5,7 +5,7 @@
     /* grid-template-columns: repeat(5, 15vw); */
     grid-template-rows: 20px fit-content(100%) 20px;
     position: fixed;
-    left: 11%;
+    left: 12.1%;
     justify-self: center;
     padding-top: 20px;
     z-index: 20;
