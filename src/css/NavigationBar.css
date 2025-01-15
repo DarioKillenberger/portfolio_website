@@ -1,11 +1,11 @@
 .navBarGrid {
-    grid-column: span 4;
-    grid-row: 1/2;
+    /* grid-column: span 4;
+    grid-row: 1/2; */
     display: grid;
     /* grid-template-columns: repeat(5, 15vw); */
     grid-template-rows: 20px fit-content(100%) 20px;
     position: fixed;
-    margin: 0 auto;
+    left: 11%;
     justify-self: center;
     padding-top: 20px;
     z-index: 20;
