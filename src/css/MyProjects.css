@@ -34,13 +34,273 @@
     grid-auto-rows: 17vw;
 }
 
+/* mobile specific css */
+@media screen and (max-width: 1200px) {
+    .portfolioTitle {
+        margin-top: 120px !important;
+    }
+
+    .pictureBox {
+        grid-template-columns: repeat(2, 45vw);
+        grid-auto-rows: auto;
+    }
+
+    .projectInfo {
+        grid-column: 1 / span 2 !important;
+        grid-row: 3 / span 3 !important;
+    }
+
+    .projectName {
+        width: 40% !important;
+        height: 25% !important;
+        font-size: 2vw !important;
+    }
+
+    @keyframes img1 {
+        0% {
+            z-index: 3;
+            transform: translate(50%, -33%) rotate(0deg);
+        }
+        40% {
+            transform: translate(50%, -33%) rotate(5deg);
+        }
+        100% {
+            z-index: 3;
+            transform: translate(0%, 0%) rotate(0deg);
+        }
+    }
+    @keyframes img2 {
+        0% {
+            z-index: 2;
+            transform: translate(-50%, -33%) rotate(0deg);
+        }
+        45% {
+            transform: translate(-50%, -33%) rotate(0deg);
+        }
+        100% {
+            z-index: 2;
+            transform: translate(0%, 0%) rotate(0deg);
+        }
+    }
+    @keyframes img3 {
+        0% {
+            z-index: 1;
+            transform: translate(50%, -136.3%) rotate(0deg);
+        }
+        50% {
+            transform: translate(50%, -136.3%) rotate(-5deg);
+        }
+        100% {
+            z-index: 1;
+            transform: translate(0%, 0%) rotate(0deg);
+        }
+    }
+    @keyframes img4 {
+        0% {
+            transform: translate(-50%, -136.3%) rotate(0deg);
+        }
+        55% {
+            transform: translate(-50%, -136.3%) rotate(0deg);
+        }
+        100% {
+            transform: translate(0%, 0%) rotate(0deg);
+        }
+    }
+    @keyframes img5 {
+        0% {
+            transform: translate(50%, -239.6%) rotate(0deg);
+        }
+        60% {
+            transform: translate(50%, -239.6%) rotate(0deg);
+        }
+        100% {
+            transform: translate(0%, 0%) rotate(0deg);
+        }
+    }
+    @keyframes img6 {
+        0% {
+            transform: translate(-50%, -239.6%) rotate(0deg);
+        }
+        65% {
+            transform: translate(-50%, -239.6%) rotate(0deg);
+        }
+        100% {
+            transform: translate(0%, 0%) rotate(0deg);
+        }
+    }
+    @keyframes img7 {
+        0% {
+            transform: translate(50%, -342.9%) rotate(0deg);
+        }
+        70% {
+            transform: translate(50%, -342.9%) rotate(0deg);
+        }
+        100% {
+            transform: translate(0%, 0%) rotate(0deg);
+        }
+    }
+    @keyframes img8 {
+        0% {
+            transform: translate(-50%, -342.9%) rotate(0deg);
+        }
+        75% {
+            transform: translate(-50%, -342.9%) rotate(0deg);
+        }
+        100% {
+            transform: translate(0%, 0%) rotate(0deg);
+        }
+    }
+    @keyframes img9 {
+        0% {
+            transform: translate(50%, -446.2%) rotate(0deg);
+        }
+        75% {
+            transform: translate(50%, -446.2%) rotate(0deg);
+        }
+        100% {
+            transform: translate(0%, 0%) rotate(0deg);
+        }
+    }
+    @keyframes img10 {
+        0% {
+            transform: translate(-50%, -446.2%) rotate(0deg);
+        }
+        75% {
+            transform: translate(-50%, -446.2%) rotate(0deg);
+        }
+        100% {
+            transform: translate(0%, 0%) rotate(0deg);
+        }
+    }
+}
+
+/* desktop specific css */
+@media screen and (min-width: 1200px) {
+    @keyframes img1 {
+        0% {
+            z-index: 3;
+            transform: translate(102%, -33%) rotate(0deg);
+        }
+        40% {
+            transform: translate(102%, -33%) rotate(5deg);
+        }
+        100% {
+            z-index: 3;
+            transform: translate(0%, 0%) rotate(0deg);
+        }
+    }
+    @keyframes img2 {
+        0% {
+            z-index: 2;
+            transform: translate(0%, -33%) rotate(0deg);
+        }
+        45% {
+            transform: translate(0%, -33%) rotate(0deg);
+        }
+        100% {
+            z-index: 2;
+            transform: translate(0%, 0%) rotate(0deg);
+        }
+    }
+    @keyframes img3 {
+        0% {
+            z-index: 1;
+            transform: translate(-102%, -33%) rotate(0deg);
+        }
+        50% {
+            transform: translate(-102%, -33%) rotate(-5deg);
+        }
+        100% {
+            z-index: 1;
+            transform: translate(0%, 0%) rotate(0deg);
+        }
+    }
+    @keyframes img4 {
+        0% {
+            transform: translate(102%, -136.3%) rotate(0deg);
+        }
+        55% {
+            transform: translate(102%, -136.3%) rotate(0deg);
+        }
+        100% {
+            transform: translate(0%, 0%) rotate(0deg);
+        }
+    }
+    @keyframes img5 {
+        0% {
+            transform: translate(0%, -136.3%) rotate(0deg);
+        }
+        60% {
+            transform: translate(0%, -136.3%) rotate(0deg);
+        }
+        100% {
+            transform: translate(0%, 0%) rotate(0deg);
+        }
+    }
+    @keyframes img6 {
+        0% {
+            transform: translate(-102%, -136.3%) rotate(0deg);
+        }
+        65% {
+            transform: translate(-102%, -136.3%) rotate(0deg);
+        }
+        100% {
+            transform: translate(0%, 0%) rotate(0deg);
+        }
+    }
+    @keyframes img7 {
+        0% {
+            transform: translate(102%, -239.6%) rotate(0deg);
+        }
+        70% {
+            transform: translate(102%, -239.6%) rotate(0deg);
+        }
+        100% {
+            transform: translate(0%, 0%) rotate(0deg);
+        }
+    }
+    @keyframes img8 {
+        0% {
+            transform: translate(0%, -239.6%) rotate(0deg);
+        }
+        75% {
+            transform: translate(0%, -239.6%) rotate(0deg);
+        }
+        100% {
+            transform: translate(0%, 0%) rotate(0deg);
+        }
+    }
+    @keyframes img9 {
+        0% {
+            transform: translate(-102%, -239.6%) rotate(0deg);
+        }
+        75% {
+            transform: translate(-102%, -239.6%) rotate(0deg);
+        }
+        100% {
+            transform: translate(0%, 0%) rotate(0deg);
+        }
+    }
+    @keyframes img10 {
+        0% {
+            transform: translate(102%, -342.9%) rotate(0deg);
+        }
+        75% {
+            transform: translate(102%, -342.9%) rotate(0deg);
+        }
+        100% {
+            transform: translate(0%, 0%) rotate(0deg);
+        }
+    }
+}
+
 .projectCard {
     align-self: center;
     justify-self: center;
     height: auto;
     width: 97%;
     aspect-ratio: 13.5 / 9;
-    margin-top: 15px;
+    margin-top: 5px;
     transition: ease-in-out 0.4s;
     border-radius: 20px;
     border-color: green;
@@ -116,7 +376,7 @@
     /* transform: scale(104%) !important; */
     align-self:baseline;
     aspect-ratio: 13.5 / 9;
-    margin-top: 0px;
+    margin-top: -10px;
     z-index: 7 !important;
     /* grid-column-start: span 2;
     grid-row-start: span 2;
@@ -138,122 +398,7 @@
     }
 }
 
-@keyframes img1 {
-    0% {
-        z-index: 3;
-        transform: translate(102%, -33%) rotate(0deg);
-    }
-    40% {
-        transform: translate(102%, -33%) rotate(5deg);
-    }
-    100% {
-        z-index: 3;
-        transform: translate(0%, 0%) rotate(0deg);
-    }
-}
-@keyframes img2 {
-    0% {
-        z-index: 2;
-        transform: translate(0%, -33%) rotate(0deg);
-    }
-    45% {
-        transform: translate(0%, -33%) rotate(0deg);
-    }
-    100% {
-        z-index: 2;
-        transform: translate(0%, 0%) rotate(0deg);
-    }
-}
-@keyframes img3 {
-    0% {
-        z-index: 1;
-        transform: translate(-102%, -33%) rotate(0deg);
-    }
-    50% {
-        transform: translate(-102%, -33%) rotate(-5deg);
-    }
-    100% {
-        z-index: 1;
-        transform: translate(0%, 0%) rotate(0deg);
-    }
-}
-@keyframes img4 {
-    0% {
-        transform: translate(102%, -136.3%) rotate(0deg);
-    }
-    55% {
-        transform: translate(102%, -136.3%) rotate(0deg);
-    }
-    100% {
-        transform: translate(0%, 0%) rotate(0deg);
-    }
-}
-@keyframes img5 {
-    0% {
-        transform: translate(0%, -136.3%) rotate(0deg);
-    }
-    60% {
-        transform: translate(0%, -136.3%) rotate(0deg);
-    }
-    100% {
-        transform: translate(0%, 0%) rotate(0deg);
-    }
-}
-@keyframes img6 {
-    0% {
-        transform: translate(-102%, -136.3%) rotate(0deg);
-    }
-    65% {
-        transform: translate(-102%, -136.3%) rotate(0deg);
-    }
-    100% {
-        transform: translate(0%, 0%) rotate(0deg);
-    }
-}
-@keyframes img7 {
-    0% {
-        transform: translate(102%, -239.6%) rotate(0deg);
-    }
-    70% {
-        transform: translate(102%, -239.6%) rotate(0deg);
-    }
-    100% {
-        transform: translate(0%, 0%) rotate(0deg);
-    }
-}
-@keyframes img8 {
-    0% {
-        transform: translate(0%, -239.6%) rotate(0deg);
-    }
-    75% {
-        transform: translate(0%, -239.6%) rotate(0deg);
-    }
-    100% {
-        transform: translate(0%, 0%) rotate(0deg);
-    }
-}
-@keyframes img9 {
-    0% {
-        transform: translate(-102%, -239.6%) rotate(0deg);
-    }
-    75% {
-        transform: translate(-102%, -239.6%) rotate(0deg);
-    }
-    100% {
-        transform: translate(0%, 0%) rotate(0deg);
-    }
-}
-@keyframes img10 {
-    0% {
-        transform: translate(102%, -342.9%) rotate(0deg);
-    }
-    75% {
-        transform: translate(102%, -342.9%) rotate(0deg);
-    }
-    100% {
-        transform: translate(0%, 0%) rotate(0deg);
-    }
-}
+
 
 @keyframes zoomIn {
     0% {
@@ -300,7 +445,7 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: white;
     font-weight: 400;
-    font-size: 0.7vw;
+    font-size: calc(3px + 0.6vw);
     text-align: center;
     align-content: center;
     padding-bottom: 4px;
