@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import '../css/MyProjects.css';
 // import Swiper core and required modules
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
@@ -221,6 +221,10 @@ function MyProjects() {
             </Swiper>
         )
     }
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     const scrollContentRef = useRef<HTMLDivElement[]>([]);
 
