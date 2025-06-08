@@ -17,9 +17,9 @@ function StartPage() {
     // Handles iterating through array of my experience, with transitions between text
     const changeText = async () => {
         const professionArr = [
-            "Software Engineering Student", "Cycling Enthusiast", "Java Experience",
-            "Javascript Experience", "React Experience", "Python Experience", "C++ Experience",
-            "History Enthusiast", "SQL Experience", "Typescript Experience", "3d Printing", "Ardiuno Tinkering"
+            "Software Engineering Student", "Cycling Enthusiast", "React Experience", "Typescript Experience",
+            "AI RAG Experience", "Javascript Experience", "Python Experience", "C++ Experience", "Java Experience",
+            "History Enthusiast", "SQL Experience", "3d Printing", "Arduino Tinkering", "DIY'er"
         ];
         setProfessionText(professionArr[0]);
         await new Promise(resolve => setTimeout(resolve, 2000));

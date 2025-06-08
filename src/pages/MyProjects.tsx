@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import '../css/MyProjects.css';
+import ReactPlayer from 'react-player'
 // import Swiper core and required modules
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 
@@ -10,16 +11,18 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
-var img1 = require('../assets/creative_therapies_website.png');
-var img2 = require('../assets/auto_image_tagger.png');
-var img3 = require('../assets/sharemaps.webp');
-var img4 = require('../assets/slide_images/desk_organizer.jpg');
-var img5 = require('../assets/c++_vendingMachine.png');
-var img6 = require('../assets/social_website.webp');
-var img7 = require('../assets/minecraft_terrainGen.jpg');
-var img8 = require('../assets/movieRecommenderTuning.png');
-var img9 = require('../assets/arduinoLED.JPG');
-var img10 = require('../assets/dogInsurance_24hour.png');
+var img1 = require('../assets/motoberry1.jpg');
+var img2 = require('../assets/savi_finance.png');
+var img3 = require('../assets/creative_therapies_website.png');
+var img4 = require('../assets/auto_image_tagger.png');
+var img5 = require('../assets/sharemaps.webp');
+var img6 = require('../assets/slide_images/desk_organizer.jpg');
+var img7 = require('../assets/c++_vendingMachine.png');
+var img8 = require('../assets/social_website.webp');
+var img9 = require('../assets/minecraft_terrainGen.jpg');
+var img10 = require('../assets/movieRecommenderTuning.png');
+var img11 = require('../assets/arduinoLED.JPG');
+var img12 = require('../assets/dogInsurance_24hour.png');
 
 
 var sl_img1 = require('../assets/slide_images/desk_organizer.jpg');
@@ -34,12 +37,21 @@ var sl_img9 = require('../assets/slide_images/steering_wheel_print.jpg');
 var sl_img10 = require('../assets/slide_images/racing_wheel.jpg');
 var sl_img11 = require('../assets/slide_images/pc_open_case.jpg');
 var sl_img12 = require('../assets/slide_images/cog_print.jpg');
-
 var sl_img13 = require('../assets/slide_images/creative_therapies_site/creative_therapies_figma.webp');
+var sl_img14 = require('../assets/slide_images/motoberry1.jpg');
+var sl_img15 = require('../assets/slide_images/motoberry2.jpg');
+var sl_img16 = require('../assets/slide_images/motoberry3.jpg');
+var sl_img17 = require('../assets/slide_images/motoberry4.jpg');
+var sl_img18 = require('../assets/slide_images/motoberry5.jpg');
+var sl_img19 = require('../assets/slide_images/motoberry6.jpg');
 
-let imgArr = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10];
-let projectSlides = [[img1, sl_img13],[],[],
-    [
+
+let video1 = require('../assets/Portfolio_Savi_Demo_v2.mp4');
+
+let imgArr = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12];
+let videoArr = [[], [video1], [], [], [], [], [], [], [], [], [], []];
+let projectSlides = [[sl_img14, sl_img15, sl_img16, sl_img17, sl_img18, sl_img19], [], [img3, sl_img13], [], [],
+[
     sl_img1,
     sl_img2,
     sl_img3,
@@ -52,8 +64,8 @@ let projectSlides = [[img1, sl_img13],[],[],
     sl_img10,
     sl_img11,
     sl_img12
-    ],
-    [],[],[],[],[],[]];
+],
+[], [], [], [], [], []];
 
 function MyProjects() {
     interface ProjectInfo {
@@ -67,8 +79,34 @@ function MyProjects() {
 
     let projectDescription: ProjectInfo[] = [
         {
+            title: "Motoberry keyboard extension",
+            year: "2025",
+            showcaseLink: "",
+            repoLink: "https://github.com/DarioKillenberger/qmk_expanded_picosdk_for_BBQ20",
+            description: [
+                "This is a 3d printed keyboard extension for the Motorola Razr 40/50 Ultra, adding a Blackberry Q20 keyboard, as well as a headphone jack.",
+                "To achieve this, I used circuit board designs and firmware based on https://github.com/ZitaoTech/BBQ20-USB-keyboard, and designed a custom 3d printed case.",
+                "I then soldered the final touches to the circuit board (including soldering on the keyboard connector), trimmed the connectors for my USB-C splitter and headphone adapter to be more compact, and de-sleeved the cables, also for increased compactness.",
+                "In an attempt to reduce power consumption, I modified the firmware to support deep sleep/dormant mode for my RP2040 microcontroller, which I achieved by upgrading the QMK code base to use updated pico-sdk and pico-extras libraries, and then writing some custom sleep code.",
+                "However, I discovered that the USB-C splitter unfortunately draws more power than the RP2040, so my final solution was to integrate a switch into my case design, which cuts the USB-C VCC line when off.",
+            ],
+            technologies: "EasyEDA, JDBCpcb, Fusion360, Ultimaker Cura, Ender 3 pro, soldering skills",
+        },
+        {
+            title: "⠀AI & Sankey Chart for⠀ Savi Finance",
+            year: "03/2025 - 06/2025",
+            showcaseLink: "https://financesavi.com/",
+            repoLink: "",
+            description: [
+                "Together with a team of fellow students, we worked with Savi Finance (canadian based fintech) to build Sankey and AI functionality in their product.",
+                "I was responsible for building the Sankey Chart (incl styling, responsive design, hover messages etc), as well as the Sankey related AI functionality.",
+                "To enable the new AI functionality, I extended the RAG pipeline to enable the chatbot to access front-end methods, and then added a new tool allow the chatbot to display the Sankey chart and set custom time filters.",
+            ],
+            technologies: "React, Typescript, HTML, CSS, GraphQL, MongoDB, RAG, LLM, Prompt Engineering",
+        },
+        {
             title: "Creative Therapies Website for Client",
-            year: "2024",
+            year: "07/2024 - 12/2024",
             showcaseLink: "https://creativetherapieskirsten.com.au/",
             repoLink: "",
             description: [
@@ -80,7 +118,7 @@ function MyProjects() {
         },
         {
             title: "Auto Image Tagger",
-            year: "02/2024 - Current",
+            year: "02/2024 - 04/2024",
             showcaseLink: "",
             repoLink: "https://github.com/DarioKillenberger/auto_image_tagger",
             description: [
@@ -103,7 +141,7 @@ function MyProjects() {
         },
         {
             title: "3D Print Projects",
-            year: "",
+            year: "Continuous",
             showcaseLink: "",
             repoLink: "",
             description: [
@@ -150,11 +188,13 @@ function MyProjects() {
         },
         {
             title: "Movie Recommender System Tuning",
-            year: "",
-            showcaseLink: "",
+            year: "10/2022",
+            showcaseLink: "https://drive.google.com/file/d/1dDsnykFyVrfahVWHI59fnrH2CE7P4NB7/view?usp=sharing",
             repoLink: "",
             description: [
-                "In this project, we chose a selection of machine learning algorithms from the... [FILL IN REST OF DETAILS].",
+                "Chose machine learning movie recommender algorithms from the surprise sci-kit library to tune and compare",
+                "Algorithms: SCDpp, NMF, Co-Clustering and KNNWithZScore",
+                "Evaluation metrics: RMSE, MAE, FCP",
             ],
             technologies: "Python, Numpy",
         },
@@ -190,12 +230,12 @@ function MyProjects() {
             setActiveImg(elemIndex);
         }
         setTimeout(() => {
-            scrollContentRef.current[elemIndex-1].scrollIntoView({ block: 'center' });
+            scrollContentRef.current[elemIndex - 1].scrollIntoView({ block: 'center' });
         }, 0.3);
     }
 
     function SwiperComponent(elemIndex: number) {
-        
+
         return (
             <Swiper
                 spaceBetween={30}
@@ -205,7 +245,7 @@ function MyProjects() {
                     disableOnInteraction: true,
                 }}
                 pagination={{
-                clickable: true,
+                    clickable: true,
                 }}
                 navigation={true}
                 modules={[Autoplay, Pagination, Navigation]}
@@ -214,11 +254,28 @@ function MyProjects() {
             >
                 {projectSlides[elemIndex].map((img, index) => (
                     <>
-                    <SwiperSlide key={index}><img className='swiperImg' src={img} alt="Portfolio Project" draggable="false" onClick={activeImg === elemIndex + 1 ? () => mouseClick(elemIndex + 1, true) : () => mouseClick(elemIndex + 1, false)} /></SwiperSlide>
+                        <SwiperSlide key={index}><img className='swiperImg' src={img} alt="Portfolio Project" draggable="false" onClick={activeImg === elemIndex + 1 ? () => mouseClick(elemIndex + 1, true) : () => mouseClick(elemIndex + 1, false)} /></SwiperSlide>
                     </>
                 ))}
 
             </Swiper>
+        )
+    }
+
+    function VideoComponent(videoPath: string, elemIndex: number) {
+
+        return (
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', height: '100%', backgroundColor: 'black' }}>
+                <ReactPlayer onClick={activeImg === elemIndex + 1 ? () => mouseClick(elemIndex + 1, true) : () => mouseClick(elemIndex + 1, false)}
+                    url={videoPath}
+                    playing={true}
+                    loop={true}
+                    width="100%"
+                    height="auto"
+                    justifySelf="center"
+                    alignSelf="center"
+                />
+            </div>
         )
     }
 
@@ -235,8 +292,8 @@ function MyProjects() {
                 {imgArr.map((img, index) => (
                     <>
                         <div className={activeImg === index + 1 ? "projectCard offsetActive" : "projectCard offset"} ref={(element: HTMLDivElement) => scrollContentRef.current[index] = element}>
-                            {activeImg === index + 1 && projectSlides[index].length > 0 ? SwiperComponent(index) : 
-                                <img className="bannerImg" src={img} alt="Portfolio Project" draggable="false" onClick={activeImg === index + 1 ? () => mouseClick(index + 1, true) : () => mouseClick(index + 1, false)}/>
+                            {activeImg === index + 1 && (projectSlides[index].length > 0 || videoArr[index].length > 0) ? (projectSlides[index].length > 0 ? SwiperComponent(index) : VideoComponent(videoArr[index][0], index)) :
+                                <img className="bannerImg" src={img} alt="Portfolio Project" draggable="false" onClick={activeImg === index + 1 ? () => mouseClick(index + 1, true) : () => mouseClick(index + 1, false)} />
                             }
                             <div className={activeImg === index + 1 ? "projectName hidden" : "projectName"}>{projectDescription[index].title}
                             </div>
@@ -250,9 +307,6 @@ function MyProjects() {
                             {projectDescription[index].technologies !== "" ? <p>Technologies Used: {projectDescription[index].technologies}</p> : null}
                             {projectDescription[index].showcaseLink !== "" ? <p>Showcase Link: <a href={projectDescription[index].showcaseLink} target="_blank" rel="noopener noreferrer">{projectDescription[index].showcaseLink}</a></p> : null}
                             {projectDescription[index].repoLink !== "" ? <p>Repo Link: <a href={projectDescription[index].repoLink} target="_blank" rel="noopener noreferrer">{projectDescription[index].repoLink}</a></p> : null}
-                            
-                            
-                        
                         </div>
                     </>
                 ))

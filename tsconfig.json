@@ -1,11 +1,8 @@
 {
   "compilerOptions": {
     "target": "es6",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "types": ["vidstack/svelte"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -20,10 +17,8 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "paths": {
-      "react": [ "./node_modules/@types/react" ]
+      "react": ["./node_modules/@types/react"]
     }
   },
-  "include": [
-    "src"
-  ]
+  "include": ["src"]
 }
