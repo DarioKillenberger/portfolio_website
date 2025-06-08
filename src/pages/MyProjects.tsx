@@ -93,7 +93,7 @@ function MyProjects() {
             technologies: "EasyEDA, JDBCpcb, Fusion360, Ultimaker Cura, Ender 3 pro, soldering skills",
         },
         {
-            title: "⠀AI & Sankey Chart for⠀ Savi Finance",
+            title: "AI & Sankey Chart for Savi Finance",
             year: "03/2025 - 06/2025",
             showcaseLink: "https://financesavi.com/",
             repoLink: "",
@@ -302,7 +302,8 @@ function MyProjects() {
                             {activeImg === index + 1 && (projectSlides[index].length > 0 || videoArr[index].length > 0) ? (projectSlides[index].length > 0 ? SwiperComponent(index) : VideoComponent(videoArr[index][0], index)) :
                                 BasicImageComponent(img, index)
                             }
-                            <div className={activeImg === index + 1 ? "projectName hidden" : "projectName"}>{projectDescription[index].title}
+                            <div className={activeImg === index + 1 ? "projectName hidden" : "projectName"}>
+                                <div className="projTitleText">{projectDescription[index].title}</div>
                             </div>
                         </div>
                         <div className={activeImg === index + 1 ? "projectInfo" : "projectInfo hidden"}>

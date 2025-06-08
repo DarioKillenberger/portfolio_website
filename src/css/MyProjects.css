@@ -1,461 +1,462 @@
 .header {
-    grid-column: 1 / 4;
-    grid-row: 1 / 2;
-    margin-top: -5vw;
-    z-index: 3;
+  grid-column: 1 / 4;
+  grid-row: 1 / 2;
+  margin-top: -5vw;
+  z-index: 3;
 }
 
 .portfolioTitle {
-    grid-column: 2 / 2;
-    grid-row: 1 / 1;
-    align-self:last baseline;
-    color: rgb(95, 134, 206);
-    font-size: 25px;
-    animation: 4s ease-out 0s 1 portfolioTitle forwards;
+  grid-column: 2 / 2;
+  grid-row: 1 / 1;
+  align-self: last baseline;
+  color: rgb(95, 134, 206);
+  font-size: 25px;
+  animation: 4s ease-out 0s 1 portfolioTitle forwards;
 }
 
 @keyframes portfolioTitle {
-    0% {
-        opacity: 0%;
-    }
-    70% {
-        opacity: 0%;
-    }
-    100% {
-        opacity: 100%;
-    }
+  0% {
+    opacity: 0%;
+  }
+  70% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
 }
 
 .pictureBox {
-    display: grid;
-    grid-column: 2 / 2;
-    grid-row: 2 / 2;
-    grid-template-columns: repeat(3, 25vw);
-    grid-auto-rows: 17vw;
+  display: grid;
+  grid-column: 2 / 2;
+  grid-row: 2 / 2;
+  grid-template-columns: repeat(3, 25vw);
+  grid-auto-rows: 17vw;
 }
 
 /* mobile specific css */
 @media screen and (max-width: 1200px) {
-    .portfolioTitle {
-        margin-top: 120px !important;
-    }
+  .portfolioTitle {
+    margin-top: 120px !important;
+  }
 
-    .pictureBox {
-        grid-template-columns: repeat(2, 45vw);
-        grid-auto-rows: auto;
-    }
+  .pictureBox {
+    grid-template-columns: repeat(2, 45vw);
+    grid-auto-rows: auto;
+  }
 
-    .projectInfo {
-        grid-column: 1 / span 2 !important;
-        grid-row: 3 / span 3 !important;
-    }
+  .projectInfo {
+    grid-column: 1 / span 2 !important;
+    grid-row: 3 / span 3 !important;
+  }
 
-    .projectName {
-        width: 40% !important;
-        height: 25% !important;
-        font-size: 2vw !important;
-    }
+  .projectName {
+    width: 40% !important;
+    height: 25% !important;
+    font-size: 2vw !important;
+  }
 
-    @keyframes img1 {
-        0% {
-            z-index: 3;
-            transform: translate(50%, -33%) rotate(0deg);
-        }
-        40% {
-            transform: translate(50%, -33%) rotate(5deg);
-        }
-        100% {
-            z-index: 3;
-            transform: translate(0%, 0%) rotate(0deg);
-        }
+  @keyframes img1 {
+    0% {
+      z-index: 3;
+      transform: translate(50%, -33%) rotate(0deg);
     }
-    @keyframes img2 {
-        0% {
-            z-index: 2;
-            transform: translate(-50%, -33%) rotate(0deg);
-        }
-        45% {
-            transform: translate(-50%, -33%) rotate(0deg);
-        }
-        100% {
-            z-index: 2;
-            transform: translate(0%, 0%) rotate(0deg);
-        }
+    40% {
+      transform: translate(50%, -33%) rotate(5deg);
     }
-    @keyframes img3 {
-        0% {
-            z-index: 1;
-            transform: translate(50%, -136.3%) rotate(0deg);
-        }
-        50% {
-            transform: translate(50%, -136.3%) rotate(-5deg);
-        }
-        100% {
-            z-index: 1;
-            transform: translate(0%, 0%) rotate(0deg);
-        }
+    100% {
+      z-index: 3;
+      transform: translate(0%, 0%) rotate(0deg);
     }
-    @keyframes img4 {
-        0% {
-            transform: translate(-50%, -136.3%) rotate(0deg);
-        }
-        55% {
-            transform: translate(-50%, -136.3%) rotate(0deg);
-        }
-        100% {
-            transform: translate(0%, 0%) rotate(0deg);
-        }
+  }
+  @keyframes img2 {
+    0% {
+      z-index: 2;
+      transform: translate(-50%, -33%) rotate(0deg);
     }
-    @keyframes img5 {
-        0% {
-            transform: translate(50%, -239.6%) rotate(0deg);
-        }
-        60% {
-            transform: translate(50%, -239.6%) rotate(0deg);
-        }
-        100% {
-            transform: translate(0%, 0%) rotate(0deg);
-        }
+    45% {
+      transform: translate(-50%, -33%) rotate(0deg);
     }
-    @keyframes img6 {
-        0% {
-            transform: translate(-50%, -239.6%) rotate(0deg);
-        }
-        65% {
-            transform: translate(-50%, -239.6%) rotate(0deg);
-        }
-        100% {
-            transform: translate(0%, 0%) rotate(0deg);
-        }
+    100% {
+      z-index: 2;
+      transform: translate(0%, 0%) rotate(0deg);
     }
-    @keyframes img7 {
-        0% {
-            transform: translate(50%, -342.9%) rotate(0deg);
-        }
-        70% {
-            transform: translate(50%, -342.9%) rotate(0deg);
-        }
-        100% {
-            transform: translate(0%, 0%) rotate(0deg);
-        }
+  }
+  @keyframes img3 {
+    0% {
+      z-index: 1;
+      transform: translate(50%, -136.3%) rotate(0deg);
     }
-    @keyframes img8 {
-        0% {
-            transform: translate(-50%, -342.9%) rotate(0deg);
-        }
-        75% {
-            transform: translate(-50%, -342.9%) rotate(0deg);
-        }
-        100% {
-            transform: translate(0%, 0%) rotate(0deg);
-        }
+    50% {
+      transform: translate(50%, -136.3%) rotate(-5deg);
     }
-    @keyframes img9 {
-        0% {
-            transform: translate(50%, -446.2%) rotate(0deg);
-        }
-        75% {
-            transform: translate(50%, -446.2%) rotate(0deg);
-        }
-        100% {
-            transform: translate(0%, 0%) rotate(0deg);
-        }
+    100% {
+      z-index: 1;
+      transform: translate(0%, 0%) rotate(0deg);
     }
-    @keyframes img10 {
-        0% {
-            transform: translate(-50%, -446.2%) rotate(0deg);
-        }
-        75% {
-            transform: translate(-50%, -446.2%) rotate(0deg);
-        }
-        100% {
-            transform: translate(0%, 0%) rotate(0deg);
-        }
+  }
+  @keyframes img4 {
+    0% {
+      transform: translate(-50%, -136.3%) rotate(0deg);
     }
+    55% {
+      transform: translate(-50%, -136.3%) rotate(0deg);
+    }
+    100% {
+      transform: translate(0%, 0%) rotate(0deg);
+    }
+  }
+  @keyframes img5 {
+    0% {
+      transform: translate(50%, -239.6%) rotate(0deg);
+    }
+    60% {
+      transform: translate(50%, -239.6%) rotate(0deg);
+    }
+    100% {
+      transform: translate(0%, 0%) rotate(0deg);
+    }
+  }
+  @keyframes img6 {
+    0% {
+      transform: translate(-50%, -239.6%) rotate(0deg);
+    }
+    65% {
+      transform: translate(-50%, -239.6%) rotate(0deg);
+    }
+    100% {
+      transform: translate(0%, 0%) rotate(0deg);
+    }
+  }
+  @keyframes img7 {
+    0% {
+      transform: translate(50%, -342.9%) rotate(0deg);
+    }
+    70% {
+      transform: translate(50%, -342.9%) rotate(0deg);
+    }
+    100% {
+      transform: translate(0%, 0%) rotate(0deg);
+    }
+  }
+  @keyframes img8 {
+    0% {
+      transform: translate(-50%, -342.9%) rotate(0deg);
+    }
+    75% {
+      transform: translate(-50%, -342.9%) rotate(0deg);
+    }
+    100% {
+      transform: translate(0%, 0%) rotate(0deg);
+    }
+  }
+  @keyframes img9 {
+    0% {
+      transform: translate(50%, -446.2%) rotate(0deg);
+    }
+    75% {
+      transform: translate(50%, -446.2%) rotate(0deg);
+    }
+    100% {
+      transform: translate(0%, 0%) rotate(0deg);
+    }
+  }
+  @keyframes img10 {
+    0% {
+      transform: translate(-50%, -446.2%) rotate(0deg);
+    }
+    75% {
+      transform: translate(-50%, -446.2%) rotate(0deg);
+    }
+    100% {
+      transform: translate(0%, 0%) rotate(0deg);
+    }
+  }
 }
 
 /* desktop specific css */
 @media screen and (min-width: 1200px) {
-    @keyframes img1 {
-        0% {
-            z-index: 3;
-            transform: translate(102%, -33%) rotate(0deg);
-        }
-        40% {
-            transform: translate(102%, -33%) rotate(5deg);
-        }
-        100% {
-            z-index: 3;
-            transform: translate(0%, 0%) rotate(0deg);
-        }
+  @keyframes img1 {
+    0% {
+      z-index: 3;
+      transform: translate(102%, -33%) rotate(0deg);
     }
-    @keyframes img2 {
-        0% {
-            z-index: 2;
-            transform: translate(0%, -33%) rotate(0deg);
-        }
-        45% {
-            transform: translate(0%, -33%) rotate(0deg);
-        }
-        100% {
-            z-index: 2;
-            transform: translate(0%, 0%) rotate(0deg);
-        }
+    40% {
+      transform: translate(102%, -33%) rotate(5deg);
     }
-    @keyframes img3 {
-        0% {
-            z-index: 1;
-            transform: translate(-102%, -33%) rotate(0deg);
-        }
-        50% {
-            transform: translate(-102%, -33%) rotate(-5deg);
-        }
-        100% {
-            z-index: 1;
-            transform: translate(0%, 0%) rotate(0deg);
-        }
+    100% {
+      z-index: 3;
+      transform: translate(0%, 0%) rotate(0deg);
     }
-    @keyframes img4 {
-        0% {
-            transform: translate(102%, -136.3%) rotate(0deg);
-        }
-        55% {
-            transform: translate(102%, -136.3%) rotate(0deg);
-        }
-        100% {
-            transform: translate(0%, 0%) rotate(0deg);
-        }
+  }
+  @keyframes img2 {
+    0% {
+      z-index: 2;
+      transform: translate(0%, -33%) rotate(0deg);
     }
-    @keyframes img5 {
-        0% {
-            transform: translate(0%, -136.3%) rotate(0deg);
-        }
-        60% {
-            transform: translate(0%, -136.3%) rotate(0deg);
-        }
-        100% {
-            transform: translate(0%, 0%) rotate(0deg);
-        }
+    45% {
+      transform: translate(0%, -33%) rotate(0deg);
     }
-    @keyframes img6 {
-        0% {
-            transform: translate(-102%, -136.3%) rotate(0deg);
-        }
-        65% {
-            transform: translate(-102%, -136.3%) rotate(0deg);
-        }
-        100% {
-            transform: translate(0%, 0%) rotate(0deg);
-        }
+    100% {
+      z-index: 2;
+      transform: translate(0%, 0%) rotate(0deg);
     }
-    @keyframes img7 {
-        0% {
-            transform: translate(102%, -239.6%) rotate(0deg);
-        }
-        70% {
-            transform: translate(102%, -239.6%) rotate(0deg);
-        }
-        100% {
-            transform: translate(0%, 0%) rotate(0deg);
-        }
+  }
+  @keyframes img3 {
+    0% {
+      z-index: 1;
+      transform: translate(-102%, -33%) rotate(0deg);
     }
-    @keyframes img8 {
-        0% {
-            transform: translate(0%, -239.6%) rotate(0deg);
-        }
-        75% {
-            transform: translate(0%, -239.6%) rotate(0deg);
-        }
-        100% {
-            transform: translate(0%, 0%) rotate(0deg);
-        }
+    50% {
+      transform: translate(-102%, -33%) rotate(-5deg);
     }
-    @keyframes img9 {
-        0% {
-            transform: translate(-102%, -239.6%) rotate(0deg);
-        }
-        75% {
-            transform: translate(-102%, -239.6%) rotate(0deg);
-        }
-        100% {
-            transform: translate(0%, 0%) rotate(0deg);
-        }
+    100% {
+      z-index: 1;
+      transform: translate(0%, 0%) rotate(0deg);
     }
-    @keyframes img10 {
-        0% {
-            transform: translate(102%, -342.9%) rotate(0deg);
-        }
-        75% {
-            transform: translate(102%, -342.9%) rotate(0deg);
-        }
-        100% {
-            transform: translate(0%, 0%) rotate(0deg);
-        }
+  }
+  @keyframes img4 {
+    0% {
+      transform: translate(102%, -136.3%) rotate(0deg);
     }
+    55% {
+      transform: translate(102%, -136.3%) rotate(0deg);
+    }
+    100% {
+      transform: translate(0%, 0%) rotate(0deg);
+    }
+  }
+  @keyframes img5 {
+    0% {
+      transform: translate(0%, -136.3%) rotate(0deg);
+    }
+    60% {
+      transform: translate(0%, -136.3%) rotate(0deg);
+    }
+    100% {
+      transform: translate(0%, 0%) rotate(0deg);
+    }
+  }
+  @keyframes img6 {
+    0% {
+      transform: translate(-102%, -136.3%) rotate(0deg);
+    }
+    65% {
+      transform: translate(-102%, -136.3%) rotate(0deg);
+    }
+    100% {
+      transform: translate(0%, 0%) rotate(0deg);
+    }
+  }
+  @keyframes img7 {
+    0% {
+      transform: translate(102%, -239.6%) rotate(0deg);
+    }
+    70% {
+      transform: translate(102%, -239.6%) rotate(0deg);
+    }
+    100% {
+      transform: translate(0%, 0%) rotate(0deg);
+    }
+  }
+  @keyframes img8 {
+    0% {
+      transform: translate(0%, -239.6%) rotate(0deg);
+    }
+    75% {
+      transform: translate(0%, -239.6%) rotate(0deg);
+    }
+    100% {
+      transform: translate(0%, 0%) rotate(0deg);
+    }
+  }
+  @keyframes img9 {
+    0% {
+      transform: translate(-102%, -239.6%) rotate(0deg);
+    }
+    75% {
+      transform: translate(-102%, -239.6%) rotate(0deg);
+    }
+    100% {
+      transform: translate(0%, 0%) rotate(0deg);
+    }
+  }
+  @keyframes img10 {
+    0% {
+      transform: translate(102%, -342.9%) rotate(0deg);
+    }
+    75% {
+      transform: translate(102%, -342.9%) rotate(0deg);
+    }
+    100% {
+      transform: translate(0%, 0%) rotate(0deg);
+    }
+  }
 }
 
 .projectCard {
-    align-self: center;
-    justify-self: center;
-    height: auto;
-    width: 97%;
-    aspect-ratio: 13.5 / 9;
-    margin-top: 5px;
-    transition: ease-in-out 0.4s;
-    border-radius: 20px;
-    border-color: green;
-    border-style: solid;
-    overflow: hidden;
-    object-fit: cover;
+  align-self: center;
+  justify-self: center;
+  height: auto;
+  width: 97%;
+  aspect-ratio: 13.5 / 9;
+  margin-top: 5px;
+  transition: ease-in-out 0.4s;
+  border-radius: 20px;
+  border-color: green;
+  border-style: solid;
+  overflow: hidden;
+  object-fit: cover;
 }
 
 .mySwiper {
-    height: 100%;
-    overflow: hidden;
-    border-radius: 17px;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 17px;
 }
 
 .swiperImg {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .bannerImg {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 /* There are two elements on same level as projectCard, so need to target every 2nd */
 .projectCard:nth-child(1) {
-    animation: 2s ease-out 0s 1 img1 forwards;
+  animation: 2s ease-out 0s 1 img1 forwards;
 }
 .projectCard:nth-child(3) {
-    animation: 2s ease-out 0s 1 img2 forwards;
+  animation: 2s ease-out 0s 1 img2 forwards;
 }
 .projectCard:nth-child(5) {
-    animation: 2s ease-out 0s 1 img3 forwards;
+  animation: 2s ease-out 0s 1 img3 forwards;
 }
 .projectCard:nth-child(7) {
-    animation: 2s ease-out 0s 1 img4 forwards;
+  animation: 2s ease-out 0s 1 img4 forwards;
 }
 .projectCard:nth-child(9) {
-    animation: 2s ease-out 0s 1 img5 forwards;
+  animation: 2s ease-out 0s 1 img5 forwards;
 }
 .projectCard:nth-child(11) {
-    animation: 2s ease-out 0s 1 img6 forwards;
+  animation: 2s ease-out 0s 1 img6 forwards;
 }
 .projectCard:nth-child(13) {
-    animation: 2s ease-out 0s 1 img7 forwards;
+  animation: 2s ease-out 0s 1 img7 forwards;
 }
 .projectCard:nth-child(15) {
-    animation: 2s ease-out 0s 1 img8 forwards;
+  animation: 2s ease-out 0s 1 img8 forwards;
 }
 .projectCard:nth-child(17) {
-    animation: 2s ease-out 0s 1 img9 forwards;
+  animation: 2s ease-out 0s 1 img9 forwards;
 }
 .projectCard:nth-child(19) {
-    animation: 2s ease-out 0s 1 img10 forwards;
+  animation: 2s ease-out 0s 1 img10 forwards;
 }
 
 /* ------------------------------------ */
 .projectName {
-    animation: 1.5s fadeInAnimation 0.7s forwards;
+  animation: 1.5s fadeInAnimation 0.7s forwards;
 }
-
 
 /* .projectCard:hover {
     animation: 1s cubic-bezier(1,.02,1,.29) 0s 1 bringToFront forwards;
 } */
 
 .offset {
-    transform: scale(100%);
+  transform: scale(100%);
 }
 
 .offset:hover {
-    border-color: rgb(107, 107, 212);
+  border-color: rgb(107, 107, 212);
 }
 
 .offsetActive {
-    /* transform: scale(104%) !important; */
-    align-self:baseline;
-    aspect-ratio: 13.5 / 9;
-    margin-top: -10px;
-    z-index: 7 !important;
-    /* grid-column-start: span 2;
+  /* transform: scale(104%) !important; */
+  align-self: baseline;
+  aspect-ratio: 13.5 / 9;
+  margin-top: -10px;
+  z-index: 7 !important;
+  /* grid-column-start: span 2;
     grid-row-start: span 2;
     width: 98%;
     margin: 8px; */
-    grid-column: 1/3;
-    grid-row: 1/3;
-    border-color: rgb(107, 107, 212);
+  grid-column: 1/3;
+  grid-row: 1/3;
+  border-color: rgb(107, 107, 212);
 }
 
 @keyframes fadeInAnimation {
-    0% {
-        opacity: 0;
-    }
-    40% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
-
-
 
 @keyframes zoomIn {
-    0% {
-        transform: scale(100%);
-    }
-    100% {
-        transform: scale(200%);
-    }
+  0% {
+    transform: scale(100%);
+  }
+  100% {
+    transform: scale(200%);
+  }
 }
 @keyframes zoomOut {
-    0% {
-        transform: scale(200%);
-    }
-    100% {
-        transform: scale(100%);
-    }
+  0% {
+    transform: scale(200%);
+  }
+  100% {
+    transform: scale(100%);
+  }
 }
 
 .projectInfo {
-    position: relative;
-    text-align: left;
-    font-size: large;
-    grid-column: 3/4;
-    grid-row: 1/3;
-    /* grid-row-start: span 2; */
-    color: rgb(161, 189, 235);
-    margin-bottom: 1.5vw;
-    padding-right: 5px;
-    overflow: auto;
-    overflow-x: hidden;
+  position: relative;
+  text-align: left;
+  font-size: large;
+  grid-column: 3/4;
+  grid-row: 1/3;
+  /* grid-row-start: span 2; */
+  color: rgb(161, 189, 235);
+  margin-bottom: 1.5vw;
+  padding-right: 5px;
+  overflow: auto;
+  overflow-x: hidden;
 }
 
 .projectName {
-    position: absolute;
-    bottom: -1%;
-    left: 0%;
-    width: 35%;
-    height: 12%;
-    background-color: rgba(0, 0, 0, 0.2);
-    border-radius: 0px 5px 5px 20px;
-    backdrop-filter: blur(3px);
-    opacity: 0;
+  position: absolute;
+  bottom: -1%;
+  left: 0%;
+  width: 35%;
+  height: 12%;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 0px 5px 5px 20px;
+  backdrop-filter: blur(3px);
+  opacity: 0;
 
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: white;
-    font-weight: 400;
-    font-size: calc(3px + 0.6vw);
-    text-align: center;
-    align-content: center;
-    padding-bottom: 4px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+  font-weight: 400;
+  font-size: calc(3px + 0.6vw);
+  text-align: center;
+  align-content: center;
+  padding-bottom: 4px;
+}
+
+.projTitleText {
+  padding: 0px 8px 0px 8px;
 }
 
 .hidden {
-    display: none;
+  display: none;
 }
