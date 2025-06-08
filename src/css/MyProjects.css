@@ -172,6 +172,28 @@
       transform: translate(0%, 0%) rotate(0deg);
     }
   }
+  @keyframes img11 {
+    0% {
+      transform: translate(50%, -549.5%) rotate(0deg);
+    }
+    75% {
+      transform: translate(50%, -549.5%) rotate(0deg);
+    }
+    100% {
+      transform: translate(0%, 0%) rotate(0deg);
+    }
+  }
+  @keyframes img12 {
+    0% {
+      transform: translate(-50%, -549.5%) rotate(0deg);
+    }
+    75% {
+      transform: translate(-50%, -549.5%) rotate(0deg);
+    }
+    100% {
+      transform: translate(0%, 0%) rotate(0deg);
+    }
+  }
 }
 
 /* desktop specific css */
@@ -292,6 +314,28 @@
       transform: translate(0%, 0%) rotate(0deg);
     }
   }
+  @keyframes img11 {
+    0% {
+      transform: translate(0%, -342.9%) rotate(0deg);
+    }
+    75% {
+      transform: translate(0%, -342.9%) rotate(0deg);
+    }
+    100% {
+      transform: translate(0%, 0%) rotate(0deg);
+    }
+  }
+  @keyframes img12 {
+    0% {
+      transform: translate(-102%, -342.9%) rotate(0deg);
+    }
+    75% {
+      transform: translate(-102%, -342.9%) rotate(0deg);
+    }
+    100% {
+      transform: translate(0%, 0%) rotate(0deg);
+    }
+  }
 }
 
 .projectCard {
@@ -356,6 +400,12 @@
 }
 .projectCard:nth-child(19) {
   animation: 2s ease-out 0s 1 img10 forwards;
+}
+.projectCard:nth-child(21) {
+  animation: 2s ease-out 0s 1 img11 forwards;
+}
+.projectCard:nth-child(23) {
+  animation: 2s ease-out 0s 1 img12 forwards;
 }
 
 /* ------------------------------------ */
