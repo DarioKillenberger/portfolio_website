@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import '../css/MyProjects.css';
-import ReactPlayer from 'react-player'
+import ReactPlayer from 'react-player/lazy'
 // import Swiper core and required modules
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 
@@ -263,7 +263,6 @@ function MyProjects() {
     }
 
     function VideoComponent(videoPath: string, elemIndex: number) {
-
         return (
             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', height: '100%', backgroundColor: 'black' }}>
                 <ReactPlayer onClick={activeImg === elemIndex + 1 ? () => mouseClick(elemIndex + 1, true) : () => mouseClick(elemIndex + 1, false)}
@@ -274,6 +273,7 @@ function MyProjects() {
                     height="auto"
                     justifySelf="center"
                     alignSelf="center"
+                    muted={true}
                     fallback={BasicImageComponent(imgArr[elemIndex], elemIndex)}
                 />
             </div>
