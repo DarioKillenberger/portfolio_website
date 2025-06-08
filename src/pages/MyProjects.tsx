@@ -48,6 +48,7 @@ var sl_img19 = require('../assets/slide_images/motoberry6.jpg');
 
 let video1 = require('../assets/Portfolio_Savi_Demo_v2.mp4');
 
+// TODO: Combine these arrays into an object
 let imgArr = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12];
 let videoArr = [[], [video1], [], [], [], [], [], [], [], [], [], []];
 let projectSlides = [[sl_img14, sl_img15, sl_img16, sl_img17, sl_img18, sl_img19], [], [img3, sl_img13], [], [],

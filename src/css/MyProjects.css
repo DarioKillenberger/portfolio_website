@@ -1,3 +1,5 @@
+/* TODO: Make animation offsets for project cards dynamic based on number of cards */
+
 .header {
   grid-column: 1 / 4;
   grid-row: 1 / 2;
