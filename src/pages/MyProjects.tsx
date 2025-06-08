@@ -274,8 +274,15 @@ function MyProjects() {
                     height="auto"
                     justifySelf="center"
                     alignSelf="center"
+                    fallback={BasicImageComponent(imgArr[elemIndex], elemIndex)}
                 />
             </div>
+        )
+    }
+
+    function BasicImageComponent(img: string, elemIndex: number) {
+        return (
+            <img className="bannerImg" src={img} alt="Portfolio Project" draggable="false" onClick={activeImg === elemIndex + 1 ? () => mouseClick(elemIndex + 1, true) : () => mouseClick(elemIndex + 1, false)} />
         )
     }
 
@@ -293,7 +300,7 @@ function MyProjects() {
                     <>
                         <div className={activeImg === index + 1 ? "projectCard offsetActive" : "projectCard offset"} ref={(element: HTMLDivElement) => scrollContentRef.current[index] = element}>
                             {activeImg === index + 1 && (projectSlides[index].length > 0 || videoArr[index].length > 0) ? (projectSlides[index].length > 0 ? SwiperComponent(index) : VideoComponent(videoArr[index][0], index)) :
-                                <img className="bannerImg" src={img} alt="Portfolio Project" draggable="false" onClick={activeImg === index + 1 ? () => mouseClick(index + 1, true) : () => mouseClick(index + 1, false)} />
+                                BasicImageComponent(img, index)
                             }
                             <div className={activeImg === index + 1 ? "projectName hidden" : "projectName"}>{projectDescription[index].title}
                             </div>
