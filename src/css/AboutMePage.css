@@ -25,8 +25,13 @@
   min-width: 90vw;
   min-height: 100vh;
   overflow: hidden;
-  margin-left: 10px;
-  margin-right: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .aboutMeWrapper {
+    min-width: calc(90vw - 20px);
+    grid-template-columns: 10px auto 10px;
+  }
 }
 
 .aboutMeContent {
