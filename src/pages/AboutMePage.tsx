@@ -1,5 +1,5 @@
 import '../css/AboutMePage.css';
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { motion } from "framer-motion"
 import DownArrow from '../page_components/DownArrow';
 
@@ -94,15 +94,55 @@ function AboutMePage() {
         },
     }
 
+    const [centeredIndex, setCenteredIndex] = useState<number>(0);
+    const scrollHeaderRef = useRef<HTMLDivElement | null>(null);
+    const scrollContentRef = useRef<HTMLDivElement[]>([]);
+    const allElementsRef = useRef<(HTMLDivElement | null)[]>([]);
+
+    // Find which element is closest to the viewport center
+    useEffect(() => {
+        const updateCenteredElement = () => {
+            const viewportCenter = window.innerHeight / 2;
+            let closestIndex = 0;
+            let closestDistance = Infinity;
+
+            allElementsRef.current.forEach((element, index) => {
+                if (!element) return;
+                const rect = element.getBoundingClientRect();
+                const elementCenter = rect.top + rect.height / 2;
+                const distance = Math.abs(elementCenter - viewportCenter);
+
+                if (distance < closestDistance) {
+                    closestDistance = distance;
+                    closestIndex = index;
+                }
+            });
+
+            setCenteredIndex(closestIndex);
+        };
+
+        updateCenteredElement();
+        window.addEventListener('scroll', updateCenteredElement, { passive: true });
+        window.addEventListener('resize', updateCenteredElement, { passive: true });
+
+        return () => {
+            window.removeEventListener('scroll', updateCenteredElement);
+            window.removeEventListener('resize', updateCenteredElement);
+        };
+    }, []);
+
     // bit of a hacky way of getting the first element centered on load, regardless of screen size
     useEffect(() => {
         scrollHeaderRef.current?.scrollIntoView({ behavior: 'auto', block: 'center', inline: 'center' });
     }, []);
 
-
-    const scrollHeaderRef = useRef<HTMLDivElement>(null);
-    const scrollContentRef = useRef<HTMLDivElement[]>([]);
-    const getRef = (element: HTMLDivElement) => (scrollContentRef.current.push(element));
+    const setElementRef = (index: number) => (element: HTMLDivElement | null) => {
+        allElementsRef.current[index] = element;
+        // Also populate scrollContentRef for the DownArrow component (skip header at index 0)
+        if (index > 0 && element) {
+            scrollContentRef.current[index - 1] = element;
+        }
+    };
 
     return (
         <>
@@ -114,11 +154,13 @@ function AboutMePage() {
                 <motion.div
                     className='aboutHeader'
                     initial="hidden"
-                    whileInView="visible"
+                    animate={centeredIndex === 0 ? "visible" : "hidden"}
                     transition={{ ease: "easeOut", duration: 0.5 }}
-                    viewport={{ once: false, amount: "all", margin: "-15% 0px -15% 0px" }}
                     variants={variants}
-                    ref={scrollHeaderRef}
+                    ref={(el) => {
+                        scrollHeaderRef.current = el;
+                        setElementRef(0)(el);
+                    }}
                 >
                     <img src={img1} alt="Headshot" width="200" height="200" className='portraitImg'></img>
                     <h1>Welcome. I'm Dario</h1>
@@ -128,25 +170,25 @@ function AboutMePage() {
                 </motion.div>
 
                 {aboutMeArr.map((elem, index) => (
-                    <>
-                        <motion.div
-                            className='aboutMeContent'
-                            initial="hidden"
-                            whileInView="visible"
-                            transition={{ ease: "easeOut", duration: 0.5 }}
-                            viewport={{ once: false, amount: "all", margin: "-15% 0px -15% 0px" }}
-                            variants={variants}
-                            ref={getRef}
-                        >
-                            {elem.title !== "" ? <h3>{elem.title}</h3> : null}
-                            <div className='expWrapper'>
-                                {elem.details !== "" ? <h4 className='leftTitle'>{elem.details}</h4> : null}
-                                {elem.year !== "" ? <h4 className='rightTitle'>{elem.year}</h4> : null}
-                            </div>
+                    <motion.div
+                        className='aboutMeContent'
+                        initial="hidden"
+                        animate={centeredIndex === index + 1 ? "visible" : "hidden"}
+                        transition={{ ease: "easeOut", duration: 0.5 }}
+                        variants={variants}
+                        ref={setElementRef(index + 1)}
+                        key={index}
+                    >
+                        {elem.title !== "" ? <h3>{elem.title}</h3> : null}
+                        <div className='expWrapper'>
+                            {elem.details !== "" ? <h4 className='leftTitle'>{elem.details}</h4> : null}
+                            {elem.year !== "" ? <h4 className='rightTitle'>{elem.year}</h4> : null}
+                        </div>
 
-                            {elem.contents.map((elem) => (<p>{elem}</p>))}
-                        </motion.div>
-                    </>
+                        {elem.contents.map((content, contentIndex) => (
+                            <p key={contentIndex}>{content}</p>
+                        ))}
+                    </motion.div>
                 ))}
 
                 <div className='aboutMeContent'></div>
