@@ -27,13 +27,6 @@
   overflow: hidden;
 }
 
-@media screen and (max-width: 768px) {
-  .aboutMeWrapper {
-    min-width: calc(90vw - 20px);
-    grid-template-columns: 10px auto 10px;
-  }
-}
-
 .aboutMeContent {
   grid-row: auto;
   grid-column: 2 / 2;
@@ -42,6 +35,8 @@
   font-size: 1.5em;
   align-self: center;
   text-align: left;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .aboutHeader {
