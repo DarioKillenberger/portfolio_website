@@ -87,7 +87,7 @@ function MyProjects() {
             repoLink: "",
             description: [
                 "Built a 350mm long-range FPV drone with 9 inch tri-blade propellers, EMAX ECO II 2807 motors, and a 9000mAh 4S Li-ion battery pack.",
-                "Used a HolyBro Kakute H7 flight controller, 35A ESC, GPS module, ELRS receiver, FPV camera, video transmitter, and ground receiver. Flashed the drone with PX4 firmware for good autonomous capabilities and extension options.",
+                "Used a HolyBro Kakute H7 flight controller, 35A ESC, GPS module, ELRS receiver, FPV camera, video transmitter, and ground receiver. Flashed the flight controller with PX4 firmware for good autonomous capabilities and extension options.",
                 "Designed and 3d printed custom camera+ELRS antenna cage, as well as landing gear joints.",
                 "The long term goal is to mount a Jetson TX1 compute module alongside a stereo camera on the drone for onboard machine vision based navigation.",
             ],
