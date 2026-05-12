@@ -11,6 +11,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
+var img0 = require('../assets/drone_img.jpg');
 var img1 = require('../assets/motoberry1.jpg');
 var img2 = require('../assets/savi_finance.png');
 var img3 = require('../assets/creative_therapies_website.png');
@@ -47,11 +48,11 @@ var sl_img19 = require('../assets/slide_images/motoberry6.jpg');
 
 
 let video1 = require('../assets/Portfolio_Savi_Demo_v2.mp4');
-
+let video2 = require('../assets/Drone_Build_V1.1_Full_compress.m4v');
 // TODO: Combine these arrays into an object
-let imgArr = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12];
-let videoArr = [[], [video1], [], [], [], [], [], [], [], [], [], []];
-let projectSlides = [[sl_img14, sl_img15, sl_img16, sl_img17, sl_img18, sl_img19], [], [img3, sl_img13], [], [],
+let imgArr = [img0, img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12];
+let videoArr = [[video2], [video1], [], [], [], [], [], [], [], [], [], [], []];
+let projectSlides = [[], [sl_img14, sl_img15, sl_img16, sl_img17, sl_img18, sl_img19], [], [img3, sl_img13], [], [],
 [
     sl_img1,
     sl_img2,
@@ -79,6 +80,19 @@ function MyProjects() {
     }
 
     let projectDescription: ProjectInfo[] = [
+        {
+            title: "DIY Drone Build",
+            year: "11/2025",
+            showcaseLink: "",
+            repoLink: "",
+            description: [
+                "Built a 350mm long-range FPV drone with 9 inch tri-blade propellers, EMAX ECO II 2807 motors, and a 9000mAh 4S Li-ion battery pack.",
+                "Used a HolyBro Kakute H7 flight controller, 35A ESC, GPS module, ELRS receiver, FPV camera, video transmitter, and ground receiver. Flashed the drone with PX4 firmware for good autonomous capabilities and extension options.",
+                "Designed and 3d printed custom camera+ELRS antenna cage, as well as landing gear joints.",
+                "The long term goal is to mount a Jetson TX1 compute module alongside a stereo camera on the drone for onboard machine vision based navigation.",
+            ],
+            technologies: "PX4, QGroundControl, 3d Printing, Soldering, Electronics Integration",
+        },
         {
             title: "Motoberry keyboard extension",
             year: "2025",
