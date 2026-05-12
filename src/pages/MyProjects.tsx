@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useMemo } from 'react';
+import { useState, useRef, useEffect, useMemo, useCallback } from 'react';
 import '../css/MyProjects.css';
 import ReactPlayer from 'react-player/lazy'
 // import Swiper core and required modules
@@ -49,6 +49,7 @@ var sl_img19 = require('../assets/slide_images/motoberry6.jpg');
 
 let video1 = require('../assets/Portfolio_Savi_Demo_v2.mp4');
 let video2 = require('../assets/Drone_Build_V1.1_Full_compress.m4v');
+const PROJECT_CARD_ANIMATION_FALLBACK_MS = 2100;
 // TODO: Combine these arrays into an object
 let imgArr = [img0, img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12];
 let videoArr = [[video2], [], [video1], [], [], [], [], [], [], [], [], [], []];
@@ -237,6 +238,9 @@ function MyProjects() {
     ], []);
 
     const [activeImg, setActiveImg] = useState<number>(0);
+    const [cardAnimationFinished, setCardAnimationFinished] = useState<boolean>(false);
+    const pendingHashProjectIndex = useRef<number | null>(null);
+    const scrollContentRef = useRef<HTMLDivElement[]>([]);
 
     function getProjectSlug(title: string) {
         return title
@@ -245,17 +249,25 @@ function MyProjects() {
             .replace(/(^-|-$)/g, '');
     }
 
+    const scrollToProject = useCallback((projectIndex: number) => {
+        setTimeout(() => {
+            scrollContentRef.current[projectIndex]?.scrollIntoView({ block: 'center' });
+        }, 0);
+    }, []);
+
+    const openProject = useCallback((projectIndex: number) => {
+        setActiveImg(projectIndex + 1);
+        scrollToProject(projectIndex);
+    }, [scrollToProject]);
+
     function mouseClick(elemIndex: number, active: boolean) {
         if (active) {
             setActiveImg(0);
             window.history.replaceState(null, '', window.location.pathname + window.location.search);
         } else {
-            setActiveImg(elemIndex);
+            openProject(elemIndex - 1);
             window.history.replaceState(null, '', `${window.location.pathname}${window.location.search}#${getProjectSlug(projectDescription[elemIndex - 1].title)}`);
         }
-        setTimeout(() => {
-            scrollContentRef.current[elemIndex - 1].scrollIntoView({ block: 'center' });
-        }, 0.3);
     }
 
     function SwiperComponent(elemIndex: number) {
@@ -310,22 +322,24 @@ function MyProjects() {
         )
     }
 
-    const scrollContentRef = useRef<HTMLDivElement[]>([]);
-
     useEffect(() => {
         function openProjectFromHash() {
             const hashSlug = window.location.hash.replace('#', '');
             const projectIndex = projectDescription.findIndex((project) => getProjectSlug(project.title) === hashSlug);
 
             if (projectIndex === -1) {
+                pendingHashProjectIndex.current = null;
                 window.scrollTo(0, 0);
                 return;
             }
 
-            setActiveImg(projectIndex + 1);
-            setTimeout(() => {
-                scrollContentRef.current[projectIndex]?.scrollIntoView({ block: 'center' });
-            }, 0);
+            if (cardAnimationFinished) {
+                openProject(projectIndex);
+            } else {
+                pendingHashProjectIndex.current = projectIndex;
+                setActiveImg(0);
+                window.scrollTo(0, 0);
+            }
         }
 
         openProjectFromHash();
@@ -334,7 +348,27 @@ function MyProjects() {
         return () => {
             window.removeEventListener('hashchange', openProjectFromHash);
         };
-    }, [projectDescription]);
+    }, [cardAnimationFinished, openProject, projectDescription]);
+
+    useEffect(() => {
+        const animationFallback = window.setTimeout(() => {
+            setCardAnimationFinished(true);
+        }, PROJECT_CARD_ANIMATION_FALLBACK_MS);
+
+        return () => {
+            window.clearTimeout(animationFallback);
+        };
+    }, []);
+
+    useEffect(() => {
+        if (!cardAnimationFinished || pendingHashProjectIndex.current === null) {
+            return;
+        }
+
+        const projectIndex = pendingHashProjectIndex.current;
+        pendingHashProjectIndex.current = null;
+        openProject(projectIndex);
+    }, [cardAnimationFinished, openProject]);
 
     return (
         <>
@@ -342,7 +376,15 @@ function MyProjects() {
             <div className='pictureBox'>
                 {imgArr.map((img, index) => (
                     <>
-                        <div className={activeImg === index + 1 ? "projectCard offsetActive" : "projectCard offset"} ref={(element: HTMLDivElement) => scrollContentRef.current[index] = element}>
+                        <div
+                            className={activeImg === index + 1 ? "projectCard offsetActive" : "projectCard offset"}
+                            ref={(element: HTMLDivElement) => scrollContentRef.current[index] = element}
+                            onAnimationEnd={(event) => {
+                                if (event.animationName === 'img12') {
+                                    setCardAnimationFinished(true);
+                                }
+                            }}
+                        >
                             {activeImg === index + 1 && (projectSlides[index].length > 0 || videoArr[index].length > 0) ? (projectSlides[index].length > 0 ? SwiperComponent(index) : VideoComponent(videoArr[index][0], index)) :
                                 BasicImageComponent(img, index)
                             }
