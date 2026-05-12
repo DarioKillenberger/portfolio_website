@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useMemo } from 'react';
 import '../css/MyProjects.css';
 import ReactPlayer from 'react-player/lazy'
 // import Swiper core and required modules
@@ -79,7 +79,7 @@ function MyProjects() {
         technologies: string;
     }
 
-    let projectDescription: ProjectInfo[] = [
+    const projectDescription: ProjectInfo[] = useMemo(() => [
         {
             title: "DIY Drone Build",
             year: "11/2025",
@@ -234,15 +234,24 @@ function MyProjects() {
             ],
             technologies: "React, Javascript, HTML, CSS",
         },
-    ];
+    ], []);
 
     const [activeImg, setActiveImg] = useState<number>(0);
+
+    function getProjectSlug(title: string) {
+        return title
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g, '-')
+            .replace(/(^-|-$)/g, '');
+    }
 
     function mouseClick(elemIndex: number, active: boolean) {
         if (active) {
             setActiveImg(0);
+            window.history.replaceState(null, '', window.location.pathname + window.location.search);
         } else {
             setActiveImg(elemIndex);
+            window.history.replaceState(null, '', `${window.location.pathname}${window.location.search}#${getProjectSlug(projectDescription[elemIndex - 1].title)}`);
         }
         setTimeout(() => {
             scrollContentRef.current[elemIndex - 1].scrollIntoView({ block: 'center' });
@@ -301,11 +310,31 @@ function MyProjects() {
         )
     }
 
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
-
     const scrollContentRef = useRef<HTMLDivElement[]>([]);
+
+    useEffect(() => {
+        function openProjectFromHash() {
+            const hashSlug = window.location.hash.replace('#', '');
+            const projectIndex = projectDescription.findIndex((project) => getProjectSlug(project.title) === hashSlug);
+
+            if (projectIndex === -1) {
+                window.scrollTo(0, 0);
+                return;
+            }
+
+            setActiveImg(projectIndex + 1);
+            setTimeout(() => {
+                scrollContentRef.current[projectIndex]?.scrollIntoView({ block: 'center' });
+            }, 0);
+        }
+
+        openProjectFromHash();
+        window.addEventListener('hashchange', openProjectFromHash);
+
+        return () => {
+            window.removeEventListener('hashchange', openProjectFromHash);
+        };
+    }, [projectDescription]);
 
     return (
         <>
